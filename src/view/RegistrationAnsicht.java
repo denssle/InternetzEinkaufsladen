@@ -9,7 +9,7 @@ public class RegistrationAnsicht
 	public Map<String, String> neuerNutzer()
 	{
 		Map<String, String> neuerNutzerMap = new HashMap<String, String>();
-		String[] daten = {"name", "email", "geburtstag", "strasse", "hausnummer", "stadt", "plz"};
+		String[] daten = {"name", "email", "geburtstag", "strasse", "hausnummer", "stadt", "plz", "password"};
 		for(int i = 0; i < daten.length; i++)
 		{
 			neuerNutzerMap.put(daten[i],einlesen(daten[i]));

@@ -26,8 +26,19 @@ public class Controller
 		}
 		else if(wahl == 1)
 		{
-			Map<String, String> neuerUser = registration.neuerNutzer();
-			nutzerLogik.neuerNutzer(neuerUser);
+			while(true)
+			{
+				try
+				{
+					Map<String, String> neuerUser = registration.neuerNutzer();
+					nutzerLogik.neuerNutzer(neuerUser);
+					break;
+				}
+				catch(IllegalArgumentException e)
+				{
+					System.out.println("Da lief was schief!");
+				}
+			}
 		}
 		else if(wahl == 2)
 		{

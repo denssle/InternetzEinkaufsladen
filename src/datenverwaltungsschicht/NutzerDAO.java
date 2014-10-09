@@ -3,19 +3,19 @@ import logikabteilung.Benutzer;
 
 public class NutzerDAO
 {
-	public boolean bearbeiten(Benutzer zuBearbeitenderUser)
+	public void bearbeiten(Benutzer zuBearbeitenderUser)
 	{
-		return true;
+		//return true;
 	}
 
-	public boolean entfernen(Benutzer zuEntfernenderUser)
+	public void entfernen(Benutzer zuEntfernenderUser)
 	{
-		return true;
+		//return true;
 	}
 
-	public boolean speichern(Benutzer zuSpeichernderUser)
+	public void speichern(Benutzer zuSpeichernderUser)
 	{
-		return true;
+		System.out.print(zuSpeichernderUser.getName() + " wurde gespeichert.");
 	}
 
 }

@@ -11,6 +11,7 @@ public class Benutzer
 	private String hausnummer;
 	private String stadt;
 	private String plz;
+	private String passwort;
 	
 	/* Getter */
 	public Warenkorb getWarenkorb()
@@ -49,6 +50,10 @@ public class Benutzer
 	{
 		return plz;
 	}
+	public String getPasswort()
+	{
+		return passwort;
+	}
 	/* Setter */
 	public void setId(int id)
 	{
@@ -82,5 +87,9 @@ public class Benutzer
 	{
 		this.plz = plz;
 	}
-	
+	public void setPasswort(String passwort)
+	{
+		this.passwort = passwort;
+	}
+	// Artikel in Warenkorb
 }

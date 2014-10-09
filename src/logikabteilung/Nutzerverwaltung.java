@@ -10,6 +10,10 @@ public class Nutzerverwaltung {
 	
 	public void neuerNutzer(Map<String, String> neuerUserMap)
 	{
+		namenVerifikation(neuerUserMap.get("name"));
+		emailVerifikation(neuerUserMap.get("email"));
+		passwortVerifikation(neuerUserMap.get("password"));
+		
 		Benutzer neuerUser = new Benutzer();
 		neuerUser.setName(neuerUserMap.get("name"));
 		neuerUser.setEmail(neuerUserMap.get("email"));
@@ -18,10 +22,11 @@ public class Nutzerverwaltung {
 		neuerUser.setPlz(neuerUserMap.get("plz"));
 		neuerUser.setStadt(neuerUserMap.get("stadt"));
 		neuerUser.setStrasse(neuerUserMap.get("strasse"));
+		neuerUser.setPasswort(neuerUserMap.get("passwort"));
 		//Userverifikation hier!
 		
 		alleNutzer.put(neuerUser.getId(), neuerUser);
-		//nutzerDAO.speichern(neuerUser);
+		nutzerDAO.speichern(neuerUser);
 	}
 	
 	public void bearbeiteNutzer()
@@ -32,5 +37,27 @@ public class Nutzerverwaltung {
 	public void entferneNutzer()
 	{
 		//do doo do
+	}
+	
+	public void namenVerifikation(String name)
+	{
+		if(name == "")
+		{
+			System.out.println("Der Name ist Müll. So wie du!");
+			throw new IllegalArgumentException();
+		}
+	}
+	public void emailVerifikation(String email)
+	{
+		if(!email.contains("@"))
+		{
+			System.out.println("Das soll ne EmailAdresse sein, du Penner?!");
+			throw new IllegalArgumentException();
+		}
+		
+	}
+	public void passwortVerifikation(String passwort)
+	{
+		throw new IllegalArgumentException();
 	}
 }
