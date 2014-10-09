@@ -1,4 +1,5 @@
 package logikabteilung;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Eingabe
@@ -12,8 +13,29 @@ public class Eingabe
 	}
 	public int einlesenInt()
 	{
-		int eingabe = scanner.nextInt();
-		return eingabe;
+		try
+		{
+			int eingabe = scanner.nextInt();
+			return eingabe;
+		}
+		catch(InputMismatchException e)
+		{
+			System.out.println("Fehlerhafte Eingabe!");
+			return einlesenInt();
+		}
+	}
+	public double einlesenDouble()
+	{
+		try
+		{
+			double eingabe = scanner.nextDouble();
+			return eingabe;
+		}
+		catch(InputMismatchException e)
+		{
+			System.out.println("Fehlerhafte Eingabe!");
+			return einlesenDouble();
+		}
 	}
 	public void close()
 	{

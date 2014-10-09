@@ -1,10 +1,11 @@
 package view;
 import java.util.Map;
 import logikabteilung.Nutzerverwaltung;
-
+import logikabteilung.Artikelverwaltung;
 public class Controller
 {
 	private Nutzerverwaltung nutzerLogik = new Nutzerverwaltung();
+	private Artikelverwaltung artikelLogik = new Artikelverwaltung();
 	
 	private MenueAnsicht hauptmenue = new MenueAnsicht();
 	private LogInAnsicht login = new LogInAnsicht();
@@ -17,7 +18,7 @@ public class Controller
 	public void menuedurchlauf()
 	{
 		int wahl = hauptmenue.auswahlmenue();
-		// 0anmelden, 1registrieren, 2einkaufen, 3warenkorb ausgeben, 4profil, 5profil bearbeiten, 6artikel erstellen, 7 artikel löschen, 8logout
+		// "0anmelden, \n1registrieren, \n2einkaufen, \n3warenkorb, \n4ausgeben, \n5profiel, \n6profiel bearbeiten, \n7artikel erstellen, \n8artikel entfernen, 9logout
 		
 		if(wahl == 0)//anmelden
 		{
@@ -39,9 +40,9 @@ public class Controller
 				}
 			}
 		}
-		else if(wahl == 6)// Artikel erstellen
+		else if(wahl == 7)// Artikel erstellen
 		{
-			artikel.erstellen();
+			artikelLogik.artikelSpeichern(artikel.erstellen());
 		}
 		else if(wahl == 8)// logout
 		{

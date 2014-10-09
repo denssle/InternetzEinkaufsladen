@@ -9,7 +9,7 @@ public class MenueAnsicht
 	public int auswahlmenue()
 	{
 		System.out.println("Hauptmenue, wie kann ich ihnen helfen?");
-		System.out.println("0anmelden, \n1registrieren, \n2einkaufen, \n3warenkorb, \n4ausgeben, \n5profiel, \n6profiel bearbeiten, \n7artikel erstellen, \nartikel entfernen, 8logout");
+		System.out.println("0anmelden, \n1registrieren, \n2einkaufen, \n3warenkorb, \n4ausgeben, \n5profiel, \n6profiel bearbeiten, \n7artikel erstellen, \n8artikel entfernen, 9logout");
 		int auswahl = eingabe.einlesenInt();	
 		
 		try
