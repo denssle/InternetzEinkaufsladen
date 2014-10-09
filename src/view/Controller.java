@@ -19,12 +19,13 @@ public class Controller
 	public void menuedurchlauf()
 	{
 		int wahl = hauptmenue.auswahlmenue();
-		// 0anmelden, 1registrieren, 2einkaufen, 3warenkorb ausgeben, 4profiel, 5ausloggen
-		if(wahl == 0)
+		// 0anmelden, 1registrieren, 2einkaufen, 3warenkorb ausgeben, 4profil, 5profil bearbeiten, 6artikel erstellen, 7 artikel löschen, 8logout
+		// profil bearbeiten fehlt
+		if(wahl == 0)//anmelden
 		{
-			//anmelden / login
+			
 		}
-		else if(wahl == 1)
+		else if(wahl == 1)//registrieren
 		{
 			while(true)
 			{
@@ -36,29 +37,25 @@ public class Controller
 				}
 				catch(IllegalArgumentException e)
 				{
-					System.out.println("Da lief was schief!");
+					System.out.println("Jetzt dürfen Sie alles erneut eingeben. Viel Spaß!");
 				}
 			}
 		}
-		else if(wahl == 2)
+		else if(wahl == 2)//einkaufen
 		{
 			// einkaufen
 		}
-		else if(wahl == 3)
+		else if(wahl == 3)// warenkorb anzeigen
 		{
 			// aktueller warenkorb
 		}
-		else if(wahl == 4)
+		else if(wahl == 4)// profil ausgeben
 		{
 			//profil
 		}
-		else if(wahl == 5)
+		else if(wahl == 8)// logout
 		{
-			// log out
-		}
-		else
-		{
-			// FEHLER!
+			System.out.println("Bye.");
 		}
 	}
 }
