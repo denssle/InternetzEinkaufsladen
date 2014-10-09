@@ -1,4 +1,5 @@
 package view;
+import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner; 
 import java.util.TreeMap;
@@ -7,7 +8,7 @@ public class RegistrationAnsicht
 {
 	public Map<String, String> neuerNutzer()
 	{
-		Map<String, String> neuerNutzerMap = new TreeMap<String, String>();
+		Map<String, String> neuerNutzerMap = new HashMap<String, String>();
 		String[] daten = {"name", "email", "geburtstag", "strasse", "hausnummer", "stadt", "plz"};
 		for(int i = 0; i < daten.length; i++)
 		{
