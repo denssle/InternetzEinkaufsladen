@@ -5,6 +5,7 @@ public class Artikel
 	private int artikelId;
 	private double preis;
 	private String bezeichnung;
+	private String kategorie;
 	
 	/* getter */
 	public int getArtikelId()
@@ -33,5 +34,4 @@ public class Artikel
 	{
 		this.bezeichnung = bezeichnung;
 	}
-	
 }

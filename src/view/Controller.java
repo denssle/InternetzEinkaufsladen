@@ -1,8 +1,5 @@
 package view;
 import java.util.Map;
-import java.util.NoSuchElementException;
-import java.util.Scanner;
-
 import logikabteilung.Nutzerverwaltung;
 
 public class Controller
@@ -15,15 +12,16 @@ public class Controller
 	private KaufAnsicht einkauf = new KaufAnsicht();
 	private WarenkorbAnsicht warenkorb = new WarenkorbAnsicht();
 	private NutzerAnsicht profil = new NutzerAnsicht();
+	private ArtikelCRUD artikel = new ArtikelCRUD();
 	
 	public void menuedurchlauf()
 	{
 		int wahl = hauptmenue.auswahlmenue();
 		// 0anmelden, 1registrieren, 2einkaufen, 3warenkorb ausgeben, 4profil, 5profil bearbeiten, 6artikel erstellen, 7 artikel löschen, 8logout
-		// profil bearbeiten fehlt
+		
 		if(wahl == 0)//anmelden
 		{
-			
+			//todo
 		}
 		else if(wahl == 1)//registrieren
 		{
@@ -41,17 +39,9 @@ public class Controller
 				}
 			}
 		}
-		else if(wahl == 2)//einkaufen
+		else if(wahl == 6)// Artikel erstellen
 		{
-			// einkaufen
-		}
-		else if(wahl == 3)// warenkorb anzeigen
-		{
-			// aktueller warenkorb
-		}
-		else if(wahl == 4)// profil ausgeben
-		{
-			//profil
+			artikel.erstellen();
 		}
 		else if(wahl == 8)// logout
 		{

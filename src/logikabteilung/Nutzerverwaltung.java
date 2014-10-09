@@ -1,12 +1,9 @@
 package logikabteilung;
-import java.util.HashMap;
 import java.util.Map;
-
 import datenverwaltungsschicht.NutzerDAO;
 
 public class Nutzerverwaltung {
 	private NutzerDAO nutzerDAO;
-	private Map<Integer, Benutzer> alleNutzer = new HashMap<Integer, Benutzer>();
 	
 	public void neuerNutzer(Map<String, String> neuerUserMap)
 	{
@@ -25,8 +22,7 @@ public class Nutzerverwaltung {
 		neuerUser.setStadt(neuerUserMap.get("stadt"));
 		neuerUser.setStrasse(neuerUserMap.get("strasse"));
 		neuerUser.setPasswort(neuerUserMap.get("passwort"));
-		
-		alleNutzer.put(neuerUser.getId(), neuerUser);
+		// User wird gespeichert. 
 		nutzerDAO.speichern(neuerUser);
 	}
 	
