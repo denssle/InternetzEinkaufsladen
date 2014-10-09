@@ -10,10 +10,12 @@ public class Nutzerverwaltung {
 	
 	public void neuerNutzer(Map<String, String> neuerUserMap)
 	{
+		//Eingaben werden verifiziert...
 		namenVerifikation(neuerUserMap.get("name"));
 		emailVerifikation(neuerUserMap.get("email"));
 		passwortVerifikation(neuerUserMap.get("password"));
 		
+		//Nach bestandener Verifikation wird der neue User angelegt
 		Benutzer neuerUser = new Benutzer();
 		neuerUser.setName(neuerUserMap.get("name"));
 		neuerUser.setEmail(neuerUserMap.get("email"));
@@ -23,7 +25,6 @@ public class Nutzerverwaltung {
 		neuerUser.setStadt(neuerUserMap.get("stadt"));
 		neuerUser.setStrasse(neuerUserMap.get("strasse"));
 		neuerUser.setPasswort(neuerUserMap.get("passwort"));
-		//Userverifikation hier!
 		
 		alleNutzer.put(neuerUser.getId(), neuerUser);
 		nutzerDAO.speichern(neuerUser);
@@ -58,6 +59,10 @@ public class Nutzerverwaltung {
 	}
 	public void passwortVerifikation(String passwort)
 	{
-		throw new IllegalArgumentException();
+		if(passwort.isEmpty())
+		{
+			System.out.println("Schlechtestes Passwort ever!");
+			throw new IllegalArgumentException();
+		}
 	}
 }
