@@ -1,26 +1,26 @@
 package datenverwaltungsschicht;
+import java.util.HashMap;
+import java.util.Map;
+
 import logikabteilung.Artikel;
 
 public class ArtikelDAO
 {
-	public Artikel lese()
+	private Map<Integer, Artikel> alleArtikel = new HashMap<Integer, Artikel>();
+	public void bearbeiten(Artikel zuBearbeitenderArtikel)
 	{
-		Artikel xxx = new Artikel();
-		return xxx;
-	}
-	public boolean bearbeiten(Artikel zuBearbeitenderArtikel)
-	{
-		return true;
+		//return true;
 	}
 
-	public boolean entfernen(Artikel zuEntfernenderArtikel)
+	public void entfernen(Artikel zuEntfernenderArtikel)
 	{
-		return true;
+		//return true;
 	}
 
-	public boolean speichern(Artikel zuSpeichernderArtikel)
+	public void speichern(Artikel zuSpeichernderArtikel)
 	{
-		return true;
+		System.out.print(zuSpeichernderArtikel.getName() + " wurde gespeichert.");
+		alleArtikel.put(zuSpeichernderArtikel.getArtikelId(), zuSpeichernderArtikel);
 	}
 
 }
