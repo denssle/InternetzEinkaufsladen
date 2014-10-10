@@ -1,14 +1,16 @@
 package view;
 import logikabteilung.Eingabe;
+
 import java.util.HashMap;
 import java.util.Map;
 
 public class ArtikelCRUD
 {
 	Eingabe eingabe = new Eingabe();
+	
 	public Map erstellen()
 	{
-		Map neuerArtikelMap = new HashMap();
+		Map<String, Comparable> neuerArtikelMap = new HashMap();
 		System.out.println("Name des Artikels, bitte:");
 		neuerArtikelMap.put("name", eingabe.einlesenString());
 		

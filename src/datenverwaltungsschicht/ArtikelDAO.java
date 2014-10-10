@@ -7,6 +7,7 @@ import logikabteilung.Artikel;
 public class ArtikelDAO
 {
 	private Map<Integer, Artikel> alleArtikel = new HashMap<Integer, Artikel>();
+	
 	public void bearbeiten(Artikel zuBearbeitenderArtikel)
 	{
 		//return true;

@@ -40,6 +40,7 @@ public class Artikelverwaltung
 	{
 		if(preis <= 0)
 		{
+			System.out.println("Umsonst ist nicht!");
 			throw new IllegalArgumentException();
 		}
 	}
