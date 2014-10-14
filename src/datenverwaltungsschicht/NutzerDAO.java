@@ -20,7 +20,7 @@ public class NutzerDAO
 
 	public void speichern(Benutzer zuSpeichernderUser)
 	{
-		System.out.print(zuSpeichernderUser.getName() + " wurde gespeichert.");
+		System.out.print(zuSpeichernderUser.getName() + " wurde gespeichert.\n");
 		alleNutzer.put(zuSpeichernderUser.getId(), zuSpeichernderUser);
 	}
 

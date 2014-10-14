@@ -2,7 +2,7 @@ package view;
 import logikabteilung.Eingabe;
 import java.util.InputMismatchException;
 
-public class MenueAnsicht
+public class HauptmenueAnsicht
 {
 	Eingabe eingabe = new Eingabe();
 	
@@ -10,7 +10,8 @@ public class MenueAnsicht
 	{
 		System.out.println("Hauptmenue, wie kann ich ihnen helfen?");
 		System.out.println("0anmelden, \n1registrieren, \n2einkaufen, \n3warenkorb, \n4ausgeben, \n5profiel, \n6profiel bearbeiten, \n7artikel erstellen, \n8artikel entfernen, 9logout");
-		int auswahl = eingabe.einlesenInt();	
+
+		int auswahl = eingabe.einlesenInt();
 		
 		try
 		{
@@ -22,7 +23,7 @@ public class MenueAnsicht
 		}
 		catch(InputMismatchException e)
 		{
-			System.out.println("Was glauben warum vor den Auswahlmöglichkeiten Ziffern stehen?\nVersuchen Sies noch mal.\n");
+			System.out.println("Was glauben Sie warum vor den Auswahlmöglichkeiten Ziffern stehen?\nVersuchen Sie es noch mal.\n");
 			return auswahlmenue();
 		}		
 	}

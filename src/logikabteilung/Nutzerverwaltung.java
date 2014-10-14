@@ -6,7 +6,7 @@ public class Nutzerverwaltung {
 	private NutzerDAO nutzerDAO = new NutzerDAO();
 	private static int userzahl;
 	
-	public void neuerNutzer(Map<String, String> neuerUserMap)
+	public Benutzer neuerNutzer(Map<String, String> neuerUserMap)
 	{
 		//Eingaben werden verifiziert...
 		namenVerifikation(neuerUserMap.get("name"));
@@ -26,6 +26,7 @@ public class Nutzerverwaltung {
 		neuerUser.setPasswort(neuerUserMap.get("passwort"));
 		
 		nutzerDAO.speichern(neuerUser);
+		return neuerUser;
 	}
 	
 	public void bearbeiteNutzer()
@@ -42,7 +43,7 @@ public class Nutzerverwaltung {
 	{
 		if(name.isEmpty())
 		{
-			System.out.println("Der Name ist Müll. So wie du!");
+			System.out.println("Der Name ist Müll. So wie Sie!");
 			throw new IllegalArgumentException();
 		}
 	}
@@ -50,7 +51,7 @@ public class Nutzerverwaltung {
 	{
 		if(!email.contains("@") && !email.contains("."))
 		{
-			System.out.println("Das soll ne EmailAdresse sein, du Penner?!");
+			System.out.println("Das soll ne EmailAdresse sein, Sie Versager?!");
 			throw new IllegalArgumentException();
 		}
 		

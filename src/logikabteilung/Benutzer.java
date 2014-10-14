@@ -12,7 +12,7 @@ public class Benutzer
 	private String stadt;
 	private String plz;
 	private String passwort;
-	
+	private boolean admin;
 	/* Getter */
 	public Warenkorb getWarenkorb()
 	{
@@ -54,10 +54,18 @@ public class Benutzer
 	{
 		return passwort;
 	}
+	public boolean getAdmin()
+	{
+		return admin;
+	}
 	/* Setter */
 	public void setId(int id)
 	{
 		this.id = id;
+	}
+	public void setAdmin(boolean admin)
+	{
+		this.admin = admin;
 	}
 	public void setName(String name)
 	{

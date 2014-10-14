@@ -20,7 +20,7 @@ public class ArtikelDAO
 
 	public void speichern(Artikel zuSpeichernderArtikel)
 	{
-		System.out.print(zuSpeichernderArtikel.getName() + " wurde gespeichert.");
+		System.out.println(zuSpeichernderArtikel.getName() + " wurde gespeichert.\n");
 		alleArtikel.put(zuSpeichernderArtikel.getArtikelId(), zuSpeichernderArtikel);
 	}
 

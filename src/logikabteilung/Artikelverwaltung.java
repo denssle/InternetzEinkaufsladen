@@ -8,6 +8,7 @@ public class Artikelverwaltung
 {
 	private ArtikelDAO artikelDAO = new ArtikelDAO();
 	private static int artikelanzahl;
+	
 	public void artikelSpeichern(Map neuerArtikelMap)
 	{
 		kategorieVerifikation((String) neuerArtikelMap.get("kategorie"));
