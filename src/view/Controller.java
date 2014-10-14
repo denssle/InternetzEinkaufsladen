@@ -11,7 +11,7 @@ public class Controller
 	private Artikelverwaltung artikelLogik = new Artikelverwaltung();
 	
 	private Eingabe input = new Eingabe();
-	private Benutzer aktuellerNutzer = new Benutzer();
+	private Benutzer aktuellerNutzer;
 	
 	private HauptmenueAnsicht hauptmenue = new HauptmenueAnsicht();
 	private LogInAnsicht login = new LogInAnsicht();
@@ -66,7 +66,7 @@ public class Controller
 			{
 				artikelLogik.artikelSpeichern(artikel.erstellen());
 			}
-			else if(wahl == 8)// logout
+			else if(wahl == 9)// logout
 			{
 				System.out.println("Auf Nimmerwiedersehen "+aktuellerNutzer.getName()+"!");
 				input.close();

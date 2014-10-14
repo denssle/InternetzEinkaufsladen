@@ -23,5 +23,9 @@ public class ArtikelDAO
 		System.out.println(zuSpeichernderArtikel.getName() + " wurde gespeichert.\n");
 		alleArtikel.put(zuSpeichernderArtikel.getArtikelId(), zuSpeichernderArtikel);
 	}
-
+	
+	public Map getAlleArtikel()
+	{
+		return alleArtikel;
+	}
 }
