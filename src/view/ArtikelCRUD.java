@@ -1,6 +1,4 @@
 package view;
-import logikabteilung.Eingabe;
-
 import java.util.HashMap;
 import java.util.Map;
 

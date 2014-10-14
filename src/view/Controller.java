@@ -2,8 +2,9 @@ package view;
 import java.util.Map;
 import logikabteilung.Nutzerverwaltung;
 import logikabteilung.Artikelverwaltung;
-import logikabteilung.Eingabe;
 import logikabteilung.Benutzer;
+
+
 public class Controller
 {
 	private Nutzerverwaltung nutzerLogik = new Nutzerverwaltung();

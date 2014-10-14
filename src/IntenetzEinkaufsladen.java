@@ -11,6 +11,7 @@ public class IntenetzEinkaufsladen
 
 }
 /*
+EIGENE EXCEPTIONS SCHREIBEN. 
 - Daten konnten nicht geladen/ gespeichert werden
 - zu oft falsch angemeldet
 - preis < 0

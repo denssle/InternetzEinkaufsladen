@@ -1,7 +1,6 @@
 package view;
 import java.util.HashMap;
 import java.util.Map;
-import logikabteilung.Eingabe;
 
 public class RegistrationAnsicht
 {

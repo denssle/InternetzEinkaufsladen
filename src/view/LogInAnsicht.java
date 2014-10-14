@@ -1,14 +1,15 @@
 package view;
 
-import java.util.HashMap;
-import java.util.Map;
-
-import logikabteilung.Benutzer;
-
 public class LogInAnsicht
 {
+	Eingabe eingabe = new Eingabe();
+	
 	public void anmelden()
 	{
-		Map<String, String> gesuchterUser = new HashMap<String, String>();
+		System.out.println("Ihre Email?");
+		String email = eingabe.einlesenString();
+		
+		System.out.println("Ihr Passwort?");
+		String passwort = eingabe.einlesenString();
 	}
 }
