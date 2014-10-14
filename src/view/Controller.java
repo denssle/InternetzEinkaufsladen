@@ -17,36 +17,40 @@ public class Controller
 	
 	public void menuedurchlauf()
 	{
-		int wahl = hauptmenue.auswahlmenue();
-		// "0anmelden, \n1registrieren, \n2einkaufen, \n3warenkorb, \n4ausgeben, \n5profiel, \n6profiel bearbeiten, \n7artikel erstellen, \n8artikel entfernen, 9logout
-		
-		if(wahl == 0)//anmelden
+		while(true)
 		{
-			//todo
-		}
-		else if(wahl == 1)//registrieren
-		{
-			while(true)
+			int wahl = hauptmenue.auswahlmenue();
+			// "0anmelden, \n1registrieren, \n2einkaufen, \n3warenkorb, \n4ausgeben, \n5profiel, \n6profiel bearbeiten, \n7artikel erstellen, \n8artikel entfernen, 9logout
+			
+			if(wahl == 0)//anmelden
 			{
-				try
+				//todo
+			}
+			else if(wahl == 1)//registrieren
+			{
+				while(true)
 				{
-					Map<String, String> neuerUser = registration.neuerNutzer();
-					nutzerLogik.neuerNutzer(neuerUser);
-					break;
-				}
-				catch(IllegalArgumentException e)
-				{
-					System.out.println("Jetzt dürfen Sie alles erneut eingeben. Viel Spaß!");
+					try
+					{
+						Map<String, String> neuerUser = registration.neuerNutzer();
+						nutzerLogik.neuerNutzer(neuerUser);
+						break;
+					}
+					catch(IllegalArgumentException e)
+					{
+						System.out.println("Jetzt dürfen Sie alles erneut eingeben. Viel Spaß!");
+					}
 				}
 			}
-		}
-		else if(wahl == 7)// Artikel erstellen
-		{
-			artikelLogik.artikelSpeichern(artikel.erstellen());
-		}
-		else if(wahl == 8)// logout
-		{
-			System.out.println("Bye.");
+			else if(wahl == 7)// Artikel erstellen
+			{
+				artikelLogik.artikelSpeichern(artikel.erstellen());
+			}
+			else if(wahl == 8)// logout
+			{
+				System.out.println("Bye.");
+				break;
+			}
 		}
 	}
 }
