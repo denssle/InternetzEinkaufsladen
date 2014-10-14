@@ -3,7 +3,8 @@ import java.util.Map;
 import datenverwaltungsschicht.NutzerDAO;
 
 public class Nutzerverwaltung {
-	private NutzerDAO nutzerDAO;
+	private NutzerDAO nutzerDAO = new NutzerDAO();
+	private static int userzahl;
 	
 	public void neuerNutzer(Map<String, String> neuerUserMap)
 	{
@@ -14,6 +15,7 @@ public class Nutzerverwaltung {
 		
 		//Nach bestandener Verifikation wird der neue User angelegt
 		Benutzer neuerUser = new Benutzer();
+		neuerUser.setId(userzahl++);
 		neuerUser.setName(neuerUserMap.get("name"));
 		neuerUser.setEmail(neuerUserMap.get("email"));
 		neuerUser.setGeburtstag(neuerUserMap.get("geburtstag"));
@@ -22,7 +24,7 @@ public class Nutzerverwaltung {
 		neuerUser.setStadt(neuerUserMap.get("stadt"));
 		neuerUser.setStrasse(neuerUserMap.get("strasse"));
 		neuerUser.setPasswort(neuerUserMap.get("passwort"));
-		// User wird gespeichert. 
+		
 		nutzerDAO.speichern(neuerUser);
 	}
 	
@@ -38,7 +40,7 @@ public class Nutzerverwaltung {
 	
 	public void namenVerifikation(String name)
 	{
-		if(name == "")
+		if(name.isEmpty())
 		{
 			System.out.println("Der Name ist Müll. So wie du!");
 			throw new IllegalArgumentException();
@@ -46,7 +48,7 @@ public class Nutzerverwaltung {
 	}
 	public void emailVerifikation(String email)
 	{
-		if(!email.contains("@"))
+		if(!email.contains("@") && !email.contains("."))
 		{
 			System.out.println("Das soll ne EmailAdresse sein, du Penner?!");
 			throw new IllegalArgumentException();

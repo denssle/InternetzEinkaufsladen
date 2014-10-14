@@ -7,7 +7,7 @@ import datenverwaltungsschicht.ArtikelDAO;
 public class Artikelverwaltung
 {
 	private ArtikelDAO artikelDAO = new ArtikelDAO();
-	
+	private static int artikelanzahl;
 	public void artikelSpeichern(Map neuerArtikelMap)
 	{
 		kategorieVerifikation((String) neuerArtikelMap.get("kategorie"));
@@ -15,6 +15,7 @@ public class Artikelverwaltung
 		preisVerifikation((double) neuerArtikelMap.get("preis"));
 		
 		Artikel zuSpeichernderArtikel = new Artikel();
+		zuSpeichernderArtikel.setArtikelId(artikelanzahl++);
 		zuSpeichernderArtikel.setBeschreibung((String) neuerArtikelMap.get("beschreibung"));
 		zuSpeichernderArtikel.setKategorie((String) neuerArtikelMap.get("kategorie"));
 		zuSpeichernderArtikel.setName((String) neuerArtikelMap.get("name"));

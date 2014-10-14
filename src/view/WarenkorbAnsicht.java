@@ -1,5 +1,6 @@
 package view;
 
-public class WarenkorbAnsicht {
+public class WarenkorbAnsicht
+{
 
 }
