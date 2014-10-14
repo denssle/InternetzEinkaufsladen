@@ -13,28 +13,34 @@ public class Eingabe
 	}
 	public int einlesenInt()
 	{
-		try
+		while(true)
 		{
-			int eingabe = scanner.nextInt();
-			return eingabe;
-		}
-		catch(InputMismatchException e)
-		{
-			System.out.println("Fehlerhafte Eingabe!");
-			return einlesenInt();
+			try
+			{
+				int eingabe = scanner.nextInt();
+				return eingabe;
+			}
+			catch(InputMismatchException e)
+			{
+				String errStr = scanner.next();
+	            System.out.println( errStr + " ist keine passende Zahl! Wiederholen Sie die Eingabe!");
+			}
 		}
 	}
 	public double einlesenDouble()
 	{
-		try
+		while(true)
 		{
-			double eingabe = scanner.nextDouble();
-			return eingabe;
-		}
-		catch(InputMismatchException e)
-		{
-			System.out.println("Fehlerhafte Eingabe!");
-			return einlesenDouble();
+			try
+			{
+				double eingabe = scanner.nextDouble();
+				return eingabe;
+			}
+			catch(InputMismatchException e)
+			{
+				String errStr = scanner.next();
+	            System.out.println( errStr + " ist keine passende Zahl! Wiederholen Sie die Eingabe!");
+			}
 		}
 	}
 	public void close()

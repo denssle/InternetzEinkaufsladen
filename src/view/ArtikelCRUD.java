@@ -10,7 +10,7 @@ public class ArtikelCRUD
 	
 	public Map erstellen()
 	{
-		Map<String, Comparable> neuerArtikelMap = new HashMap();
+		Map<String, Comparable> neuerArtikelMap = new HashMap<String, Comparable>();
 		System.out.println("Name des Artikels, bitte:");
 		neuerArtikelMap.put("name", eingabe.einlesenString());
 		

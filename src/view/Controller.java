@@ -2,10 +2,13 @@ package view;
 import java.util.Map;
 import logikabteilung.Nutzerverwaltung;
 import logikabteilung.Artikelverwaltung;
+import logikabteilung.Eingabe;
 public class Controller
 {
 	private Nutzerverwaltung nutzerLogik = new Nutzerverwaltung();
 	private Artikelverwaltung artikelLogik = new Artikelverwaltung();
+	
+	private Eingabe input = new Eingabe();
 	
 	private MenueAnsicht hauptmenue = new MenueAnsicht();
 	private LogInAnsicht login = new LogInAnsicht();
@@ -49,6 +52,7 @@ public class Controller
 			else if(wahl == 8)// logout
 			{
 				System.out.println("Bye.");
+				input.close();
 				break;
 			}
 		}
