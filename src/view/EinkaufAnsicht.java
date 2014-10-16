@@ -16,10 +16,6 @@ public class EinkaufAnsicht
 			map.forEach( (id,artikel) -> System.out.println("ID: " + id + ": Artikel: " + artikel.getName()));
 		}
 	}
-	public void suchen()
-	{
-		// todo
-	}
 	
 	public void detailansicht()
 	{
