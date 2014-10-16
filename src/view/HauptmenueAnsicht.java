@@ -14,7 +14,7 @@ public class HauptmenueAnsicht
 		
 		try
 		{
-			if(auswahl > 8)
+			if(auswahl > 9)
 			{
 				throw new InputMismatchException();
 			}

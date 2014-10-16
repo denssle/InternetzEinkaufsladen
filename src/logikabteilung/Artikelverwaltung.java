@@ -46,4 +46,8 @@ public class Artikelverwaltung
 			throw new IllegalArgumentException();
 		}
 	}
+	public Map getAlleArtikel()
+	{
+		return artikelDAO.getAlleArtikel();
+	}
 }

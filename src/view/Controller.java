@@ -16,7 +16,7 @@ public class Controller
 	private HauptmenueAnsicht hauptmenue = new HauptmenueAnsicht();
 	private LogInAnsicht login = new LogInAnsicht();
 	private RegistrationAnsicht registration = new RegistrationAnsicht();
-	private KaufAnsicht einkauf = new KaufAnsicht();
+	private EinkaufAnsicht einkauf = new EinkaufAnsicht();
 	private WarenkorbAnsicht warenkorb = new WarenkorbAnsicht();
 	private NutzerAnsicht profil = new NutzerAnsicht();
 	private ArtikelCRUD artikel = new ArtikelCRUD();
@@ -61,6 +61,10 @@ public class Controller
 				{
 					System.out.println("Sie sind bereits angemeldet und damit registriert. \nTrottel!\n");
 				}
+			}
+			else if(wahl == 2)
+			{
+				einkauf.startseite(artikelLogik.getAlleArtikel());
 			}
 			else if(wahl == 7)// Artikel erstellen
 			{
