@@ -5,15 +5,25 @@ import logikabteilung.Artikel;
 
 public class EinkaufAnsicht
 {
-	public void startseite(Map<Integer, Artikel> map)
+	Map<Integer, Artikel> warenliste;
+	public void startseite(Map<Integer, Artikel> warenliste)
 	{
-		if(map.isEmpty())
+		this.warenliste = warenliste;
+		while(true)
+		{
+			System.out.println("Was darfs denn sein?");
+		}
+	}
+	
+	public void warenlisteZeigen()
+	{
+		if(warenliste.isEmpty())
 		{
 			System.out.println("Nichts da!");
 		}
 		else
 		{
-			map.forEach( (id,artikel) -> System.out.println("ID: " + id + ": Artikel: " + artikel.getName()));
+			warenliste.forEach( (id,artikel) -> System.out.println("ID: " + id + ": Artikel: " + artikel.getName()));
 		}
 	}
 	

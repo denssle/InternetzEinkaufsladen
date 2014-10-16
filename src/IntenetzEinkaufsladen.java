@@ -12,6 +12,7 @@ public class IntenetzEinkaufsladen
 }
 /*
 EIGENE EXCEPTIONS SCHREIBEN. 
+Wiederverwertbare Meneu View für alle views. 
 - Daten konnten nicht geladen/ gespeichert werden
 - zu oft falsch angemeldet
 - preis < 0
