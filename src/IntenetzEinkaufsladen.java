@@ -6,7 +6,7 @@ public class IntenetzEinkaufsladen
 	
 	public static void main(String[] args)
 	{
-		viewControll.menuedurchlauf();
+		viewControll.start();
 	}
 
 }

@@ -1,29 +1,43 @@
 package view;
+import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.GridLayout;
 import java.util.InputMismatchException;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
 
 public class HauptmenueAnsicht
 {
 	Eingabe eingabe = new Eingabe();
 	
-	public int auswahlmenue()
+	public void auswahlmenue()
 	{
-		System.out.println("Hauptmenue, wie kann ich ihnen helfen?");
-		System.out.println("0anmelden, \n1registrieren, \n2einkaufen, \n3warenkorb, \n4ausgeben, \n5profiel, \n6profiel bearbeiten, \n7artikel erstellen, \n8artikel entfernen, 9logout");
-
-		int auswahl = eingabe.einlesenInt();
+		JFrame frame = new JFrame("InternetzLaden");
+		frame.setSize(600,600);
+		frame.setLocation(10,10);
 		
-		try
-		{
-			if(auswahl > 9)
-			{
-				throw new InputMismatchException();
-			}
-			return auswahl;
-		}
-		catch(InputMismatchException e)
-		{
-			System.out.println("Was glauben Sie warum vor den Auswahlmöglichkeiten Ziffern stehen?\nVersuchen Sie es noch mal.\n");
-			return auswahlmenue();
-		}		
+		JPanel mainPanel = new JPanel();
+		mainPanel.setLayout(new BorderLayout());
+		
+		
+		JPanel leiste = new JPanel();
+		leiste.setLayout(new GridLayout(4,1));
+		leiste.setBackground(new Color(50,50,50));
+		leiste.add(new JButton("Anmelden"));
+		leiste.add(new JButton("Registrieren"));
+		leiste.add(new JButton("Einkaufen"));
+		leiste.add(new JButton("Profil"));
+		
+		JPanel ausgabe = new JPanel();
+		ausgabe.setLayout(new GridLayout());
+		ausgabe.setBackground(new Color(200,200,200));
+		
+		mainPanel.add("West", leiste);
+		mainPanel.add("East", ausgabe);
+		frame.getContentPane().add(mainPanel, BorderLayout.CENTER);
+		frame.setDefaultCloseOperation(javax.swing.JFrame.EXIT_ON_CLOSE);
+		frame.setVisible(true);
 	}
 }
