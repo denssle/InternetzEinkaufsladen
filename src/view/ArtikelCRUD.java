@@ -8,6 +8,8 @@ import java.awt.TextField;
 import java.util.HashMap;
 import java.util.Map;
 import java.awt.GridBagConstraints;
+
+import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -20,25 +22,16 @@ public class ArtikelCRUD
 	{
 		
 		JPanel main = new JPanel();
-		String[] labels = {"Preis", "Beschreibung", "Kategorie"};
-		main.setLayout(new GridLayout(labels.length+1,1));
+		main.add(new JTextField("Name"));
+		main.add(new JTextField("Preis"));
+		main.add(new JTextField("Beschreibung"));
 		
+		String[] petStrings = { "Bird", "Cat", "Dog", "Rabbit", "Pig" };
+		JComboBox petList = new JComboBox(petStrings);
+		main.add(petList);
 		
-		for(int i = 0; i<labels.length; i++)
-		{
-			JPanel zeile = new JPanel();
-			zeile.setLayout(new FlowLayout());
-			zeile.setBackground(new Color(220,220,220));
-			
-			zeile.add(new JLabel(), labels[i]);
-			zeile.add(new TextField(labels[i]));
-			main.add(zeile);
-		}
+		main.add(new JButton("Ok"));
 		
-		JPanel button = new JPanel();
-		button.setLayout(new FlowLayout());
-		button.add(new JButton("Ok"));
-		main.add(button);
 		
 		return main;
 	}
