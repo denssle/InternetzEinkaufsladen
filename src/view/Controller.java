@@ -44,8 +44,9 @@ public class Controller
 
 		JPanel leiste = hauptmenue.auswahlmenue();
 		JPanel ausgabe;
-		//ausgabe = login.anmelden();
+		ausgabe = login.anmelden();
 		ausgabe = artikel.anzeigen();
+		
 		mainPanel.add("West", leiste);
 		mainPanel.add("Center", ausgabe);
 		frame.getContentPane().add(mainPanel, BorderLayout.CENTER);

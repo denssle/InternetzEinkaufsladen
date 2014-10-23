@@ -11,6 +11,7 @@ public class IntenetzEinkaufsladen
 
 }
 /*
+CARDLAYOUT
 EIGENE EXCEPTIONS SCHREIBEN. 
 Wiederverwertbare Meneu View für alle views. 
 - Daten konnten nicht geladen/ gespeichert werden
