@@ -15,7 +15,6 @@ public class Controller
 	private Nutzerverwaltung nutzerLogik = new Nutzerverwaltung();
 	private Artikelverwaltung artikelLogik = new Artikelverwaltung();
 	
-	private Eingabe input = new Eingabe();
 	private Benutzer aktuellerNutzer;
 	
 	private HauptmenueAnsicht hauptmenue = new HauptmenueAnsicht();
@@ -26,9 +25,29 @@ public class Controller
 	private NutzerAnsicht profil = new NutzerAnsicht();
 	private ArtikelCRUD artikel = new ArtikelCRUD();
 	
+	private JFrame frame = new JFrame("InternetzLaden");
+	
+	JPanel mainPanel = new JPanel();
+	
 	public void start()
 	{
-		hauptmenue.auswahlmenue();
+		frame.setSize(600,600);
+		Dimension d = Toolkit.getDefaultToolkit().getScreenSize();
+		int x = (int)((d.width - frame.getSize().width) / 2);
+		int y = (int)((d.height - frame.getSize().height) / 2);
+		frame.setLocation(x, y);
+		frame.setDefaultCloseOperation(javax.swing.JFrame.EXIT_ON_CLOSE);
+		mainPanel.setLayout(new BorderLayout());
+		
+
+		JPanel leiste = hauptmenue.auswahlmenue();
+		JPanel ausgabe = login.anmelden();
+		
+		mainPanel.add("West", leiste);
+		mainPanel.add("East", ausgabe);
+		frame.getContentPane().add(mainPanel, BorderLayout.CENTER);
+		frame.setVisible(true);
+		//frame.revalidate();
 	}
 }
 	
