@@ -1,13 +1,15 @@
 package view;
 
-import java.util.Map;
-import java.awt.*;
+import java.awt.BorderLayout;
+import java.awt.Dimension;
+import java.awt.Toolkit;
 
-import javax.swing.*;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
 
-import logikabteilung.Nutzerverwaltung;
 import logikabteilung.Artikelverwaltung;
 import logikabteilung.Benutzer;
+import logikabteilung.Nutzerverwaltung;
 
 
 public class Controller
