@@ -1,41 +1,34 @@
 package view;
-import java.awt.BorderLayout;
-import java.awt.Color;
-import java.awt.FlowLayout;
-import java.awt.GridBagLayout;
 import java.awt.GridLayout;
-import java.awt.TextField;
 import java.util.HashMap;
 import java.util.Map;
-import java.awt.GridBagConstraints;
 
+import javax.swing.JButton;
 import javax.swing.JComboBox;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
-import javax.swing.JButton;
 
 public class ArtikelCRUD
 {
 	public JPanel anzeigen()
 	{
-		
 		JPanel main = new JPanel();
+		main.setLayout(new GridLayout(5,1));
+		
 		main.add(new JTextField("Name"));
 		main.add(new JTextField("Preis"));
 		main.add(new JTextField("Beschreibung"));
 		
-		String[] petStrings = { "Bird", "Cat", "Dog", "Rabbit", "Pig" };
-		JComboBox petList = new JComboBox(petStrings);
-		main.add(petList);
+		String[] artikelKategorien = {"Buch", "TabletPC"};
+		JComboBox<String> moeglicheKategorien = new JComboBox<String>(artikelKategorien);
+		main.add(moeglicheKategorien);
 		
 		main.add(new JButton("Ok"));
 		
 		
 		return main;
 	}
-	public Map erstellen()
+	public Map<String, Comparable> erstellen()
 	{
 		Map<String, Comparable> neuerArtikelMap = new HashMap<String, Comparable>();
 		/*
