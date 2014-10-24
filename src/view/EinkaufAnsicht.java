@@ -15,7 +15,7 @@ public class EinkaufAnsicht
 	public JPanel start()
 	{
 		Map<Integer, String> artikelMap = new HashMap<Integer, String>();
-		for(int i = 1; i < 100; i++)
+		for(int i = 1; i < 25; i++)
 		{
 			artikelMap.put(i, "value"+i);
 		}
