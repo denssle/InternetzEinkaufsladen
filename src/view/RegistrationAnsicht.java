@@ -1,6 +1,12 @@
 package view;
+import java.awt.FlowLayout;
+import java.awt.GridLayout;
 import java.util.HashMap;
 import java.util.Map;
+
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
 
 public class RegistrationAnsicht
 {
@@ -16,6 +22,24 @@ public class RegistrationAnsicht
 			neuerNutzerMap.put(daten[i],eingabe.einlesenString());
 		}
 		return neuerNutzerMap;
+	}
+
+	public JPanel userAnlegen()
+	{
+		JPanel main = new JPanel();
+		main.setLayout(new FlowLayout());
+		
+		String[] daten = {"Name", "Email", "Geburtstag", "Strasse", "Hausnummer", "Stadt", "Postleitzahl", "Password"};
+		
+		JPanel zeile = new JPanel();
+		zeile.setLayout(new GridLayout(daten.length,2));
+		for(int i = 0; i<daten.length; i++)
+		{
+			zeile.add(new JLabel(daten[i]));
+			zeile.add(new JTextField("Hier bitte "+daten[i]+" eingeben."));
+		}
+		main.add(zeile);
+		return main;
 	}
 }
 
