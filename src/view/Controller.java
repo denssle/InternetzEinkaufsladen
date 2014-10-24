@@ -47,8 +47,9 @@ public class Controller
 		JPanel ausgabe;
 		//ausgabe = login.anmelden();
 		//ausgabe = artikel.anzeigen();
-		ausgabe = profil.profilAusgeben();
+		//ausgabe = profil.profilAusgeben();
 		//ausgabe = registration.userAnlegen();
+		ausgabe = einkauf.start();
 		
 		mainPanel.add("West", leiste);
 		mainPanel.add("Center", ausgabe);

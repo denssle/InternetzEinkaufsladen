@@ -1,39 +1,25 @@
 package view;
 
+import java.awt.FlowLayout;
+import java.util.HashMap;
 import java.util.Map;
-import logikabteilung.Artikel;
+
+import javax.swing.JLabel;
+import javax.swing.JPanel;
 
 public class EinkaufAnsicht
 {
-	Map<Integer, Artikel> warenliste;
-	public void startseite(Map<Integer, Artikel> warenliste)
+	private Map parameter = new HashMap();
+	public JPanel start()
 	{
-		this.warenliste = warenliste;
-		while(true)
+		JPanel main = new JPanel();
+		main.setLayout(new FlowLayout());
+		
+		if(parameter.isEmpty())
 		{
-			System.out.println("Was darfs denn sein?");
+			main.add(new JLabel("Es sind keine Artikel vorhanden."));
 		}
-	}
-	
-	public void warenlisteZeigen()
-	{
-		if(warenliste.isEmpty())
-		{
-			System.out.println("Nichts da!");
-		}
-		else
-		{
-			warenliste.forEach( (id,artikel) -> System.out.println("ID: " + id + ": Artikel: " + artikel.getName()));
-		}
-	}
-	
-	public void detailansicht()
-	{
-		//do do
-	}
-	
-	public void inDenWarenkorb()
-	{
-		// do do do
+		
+		return main;
 	}
 }
