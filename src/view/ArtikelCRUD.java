@@ -43,10 +43,9 @@ public class ArtikelCRUD
 		button.setLayout(new FlowLayout());
 		button.add(new JButton("Ok"));
 		
-		JPanel zwischenschritt = new JPanel();
-		zwischenschritt.setLayout(new GridLayout(5,2));
-		
 		JPanel[] panelArray = {zeileN, zeileP, zeileB, zeileK,button};
+		JPanel zwischenschritt = new JPanel();
+		zwischenschritt.setLayout(new GridLayout(panelArray.length+1,2));
 		for(int i=0; i<panelArray.length; i++)
 		{
 			zwischenschritt.add(panelArray[i]);

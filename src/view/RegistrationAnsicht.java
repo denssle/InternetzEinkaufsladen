@@ -29,9 +29,7 @@ public class RegistrationAnsicht
 	{
 		JPanel main = new JPanel();
 		main.setLayout(new FlowLayout());
-		
 		String[] daten = {"Name", "Email", "Geburtstag", "Strasse", "Hausnummer", "Stadt", "Postleitzahl", "Password"};
-		
 		JPanel zeile = new JPanel();
 		zeile.setLayout(new GridLayout(daten.length+1,2));
 		for(int i = 0; i<daten.length; i++)

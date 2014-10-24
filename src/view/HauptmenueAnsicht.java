@@ -13,7 +13,6 @@ public class HauptmenueAnsicht
 	{	
 		JPanel leiste = new JPanel();
 		leiste.setLayout(new GridLayout(5,1));
-		leiste.setBackground(new Color(100,100,100));
 		leiste.setPreferredSize(new Dimension(200, 600));
 		leiste.add(new JButton("Anmelden"));
 		leiste.add(new JButton("Registrieren"));

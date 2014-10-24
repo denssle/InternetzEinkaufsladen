@@ -1,6 +1,7 @@
 package view;
 
 import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Toolkit;
 
@@ -40,14 +41,14 @@ public class Controller
 		frame.setLocation(x, y);
 		frame.setDefaultCloseOperation(javax.swing.JFrame.EXIT_ON_CLOSE);
 		mainPanel.setLayout(new BorderLayout());
-		
+		mainPanel.setBackground(new Color(100,100,100));
 
 		JPanel leiste = hauptmenue.auswahlmenue();
 		JPanel ausgabe;
 		//ausgabe = login.anmelden();
 		//ausgabe = artikel.anzeigen();
-		//ausgabe = profil.profilAusgeben();
-		ausgabe = registration.userAnlegen();
+		ausgabe = profil.profilAusgeben();
+		//ausgabe = registration.userAnlegen();
 		
 		mainPanel.add("West", leiste);
 		mainPanel.add("Center", ausgabe);
