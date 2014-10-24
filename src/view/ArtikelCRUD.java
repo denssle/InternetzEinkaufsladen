@@ -15,30 +15,26 @@ public class ArtikelCRUD
 	public JPanel anzeigen()
 	{
 		JPanel main = new JPanel();
-		main.setLayout(new GridLayout(5,1));
+		main.setLayout(new FlowLayout());
 		
 		JPanel zeileN = new JPanel();
-		zeileN.setLayout(new FlowLayout());
-		JLabel lableName = new JLabel("Artikelname:");
-		zeileN.add(lableName);
+		zeileN.setLayout(new GridLayout(1,2));
+		zeileN.add(new JLabel("Artikelname:"));
 		zeileN.add(new JTextField("Name"));
 		
 		JPanel zeileP = new JPanel();
-		zeileP.setLayout(new FlowLayout());
-		JLabel lablePreis = new JLabel("Preis des Artikels:");
-		zeileP.add(lablePreis);
+		zeileP.setLayout(new GridLayout(1,2));
+		zeileP.add(new JLabel("Preis des Artikels:"));
 		zeileP.add(new JTextField("Preis"));
 		
 		JPanel zeileB = new JPanel();
-		zeileB.setLayout(new FlowLayout());
-		JLabel lableBeschreibung = new JLabel("Beschreibung:");
-		zeileB.add(lableBeschreibung);
+		zeileB.setLayout(new GridLayout(1,2));
+		zeileB.add(new JLabel("Beschreibung:"));
 		zeileB.add(new JTextField("Beschreibung"));
 		
 		JPanel zeileK = new JPanel();
-		zeileK.setLayout(new FlowLayout());
-		JLabel lableKategorie = new JLabel("Kategorie:");
-		zeileK.add(lableKategorie);
+		zeileK.setLayout(new GridLayout(1,2));
+		zeileK.add(new JLabel("Kategorie:"));
 		String[] artikelKategorien = {"Buch", "TabletPC"};
 		JComboBox<String> moeglicheKategorien = new JComboBox<String>(artikelKategorien);
 		zeileK.add(moeglicheKategorien);

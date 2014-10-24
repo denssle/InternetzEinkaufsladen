@@ -33,7 +33,7 @@ public class Controller
 	
 	public void start()
 	{
-		frame.setSize(600,600);
+		frame.setSize(800,800);
 		Dimension d = Toolkit.getDefaultToolkit().getScreenSize();
 		int x = (int)((d.width - frame.getSize().width) / 2);
 		int y = (int)((d.height - frame.getSize().height) / 2);
@@ -44,8 +44,9 @@ public class Controller
 
 		JPanel leiste = hauptmenue.auswahlmenue();
 		JPanel ausgabe;
-		ausgabe = login.anmelden();
+		//ausgabe = login.anmelden();
 		ausgabe = artikel.anzeigen();
+		//ausgabe = profil.profilAusgeben();
 		
 		mainPanel.add("West", leiste);
 		mainPanel.add("Center", ausgabe);
