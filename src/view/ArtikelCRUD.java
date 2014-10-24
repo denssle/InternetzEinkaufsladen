@@ -43,12 +43,16 @@ public class ArtikelCRUD
 		button.setLayout(new FlowLayout());
 		button.add(new JButton("Ok"));
 		
-		main.add(zeileN);
-		main.add(zeileP);
-		main.add(zeileB);
-		main.add(zeileK);
-		main.add(button);
+		JPanel zwischenschritt = new JPanel();
+		zwischenschritt.setLayout(new GridLayout(5,2));
 		
+		JPanel[] panelArray = {zeileN, zeileP, zeileB, zeileK,button};
+		for(int i=0; i<panelArray.length; i++)
+		{
+			zwischenschritt.add(panelArray[i]);
+		}
+		
+		main.add(zwischenschritt);
 		return main;
 	}
 	public Map<String, Comparable> erstellen()
