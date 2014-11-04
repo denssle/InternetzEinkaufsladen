@@ -6,6 +6,7 @@ import logikabteilung.Benutzer;
 public class Nutzerverwaltung {
 	private NutzerDAO nutzerDAO = new NutzerDAO();
 	private static int userzahl;
+	private Benutzer aktuellerUser = new Benutzer();
 	
 	public void neuerNutzer(Map<String, String> neuerUserMap)
 	{
@@ -25,6 +26,8 @@ public class Nutzerverwaltung {
 		neuerUser.setStadt(neuerUserMap.get("stadt"));
 		neuerUser.setStrasse(neuerUserMap.get("strasse"));
 		neuerUser.setPasswort(neuerUserMap.get("passwort"));
+		
+		aktuellerUser = neuerUser;
 		
 		nutzerDAO.speichern(neuerUser);
 	}

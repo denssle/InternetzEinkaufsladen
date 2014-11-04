@@ -11,6 +11,7 @@ import logikabteilung.Nutzerverwaltung;
 import view.HauptmenueAnsicht;
 import view.LogInAnsicht;
 
+
 public class Controller
 {
 	private Nutzerverwaltung nutzerLogik = new Nutzerverwaltung();
@@ -44,8 +45,8 @@ public class Controller
 		//ausgabe = login.anmelden();
 		//ausgabe = artikel.anzeigen();
 		//ausgabe = profil.profilAusgeben();
-		//ausgabe = registration.userAnlegen();
-		ausgabe = einkauf.start();
+		ausgabe = registration.userAnlegen();
+		//ausgabe = einkauf.start();
 		
 		mainPanel.add("West", leiste);
 		mainPanel.add("Center", ausgabe);
