@@ -5,7 +5,6 @@ import java.awt.GridLayout;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
-
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;

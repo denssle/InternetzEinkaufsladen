@@ -15,7 +15,7 @@ public class NutzerDAO
 
 	public void entfernen(Benutzer zuEntfernenderUser)
 	{
-		//return true;
+		
 	}
 
 	public void speichern(Benutzer zuSpeichernderUser)

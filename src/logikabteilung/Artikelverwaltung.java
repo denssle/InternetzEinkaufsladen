@@ -1,6 +1,5 @@
 package logikabteilung;
 import java.util.Map;
-
 import datenverwaltungsschicht.ArtikelDAO;
 
 

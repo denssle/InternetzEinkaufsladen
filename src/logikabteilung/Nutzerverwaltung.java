@@ -1,12 +1,13 @@
 package logikabteilung;
 import java.util.Map;
 import datenverwaltungsschicht.NutzerDAO;
+import logikabteilung.Benutzer;
 
 public class Nutzerverwaltung {
 	private NutzerDAO nutzerDAO = new NutzerDAO();
 	private static int userzahl;
 	
-	public Benutzer neuerNutzer(Map<String, String> neuerUserMap)
+	public void neuerNutzer(Map<String, String> neuerUserMap)
 	{
 		//Eingaben werden verifiziert...
 		namenVerifikation(neuerUserMap.get("name"));
@@ -26,7 +27,6 @@ public class Nutzerverwaltung {
 		neuerUser.setPasswort(neuerUserMap.get("passwort"));
 		
 		nutzerDAO.speichern(neuerUser);
-		return neuerUser;
 	}
 	
 	public void bearbeiteNutzer()

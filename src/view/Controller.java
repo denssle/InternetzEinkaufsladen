@@ -4,22 +4,18 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Toolkit;
-
 import javax.swing.JFrame;
 import javax.swing.JPanel;
-
 import logikabteilung.Artikelverwaltung;
-import logikabteilung.Benutzer;
 import logikabteilung.Nutzerverwaltung;
-
+import view.HauptmenueAnsicht;
+import view.LogInAnsicht;
 
 public class Controller
 {
 	private Nutzerverwaltung nutzerLogik = new Nutzerverwaltung();
 	private Artikelverwaltung artikelLogik = new Artikelverwaltung();
-	
-	private Benutzer aktuellerNutzer;
-	
+		
 	private HauptmenueAnsicht hauptmenue = new HauptmenueAnsicht();
 	private LogInAnsicht login = new LogInAnsicht();
 	private RegistrationAnsicht registration = new RegistrationAnsicht();
