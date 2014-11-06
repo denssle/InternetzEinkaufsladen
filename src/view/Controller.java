@@ -54,7 +54,12 @@ public class Controller implements ActionListener
 	
 	public JPanel menueLeisteErstellen()
 	{
-		String[] buttonlabels = {"Anmelden", "Registrieren", "Einkaufen", "Profil", "Verwaltung"};
+		String[] buttonlabels = {
+				"Anmelden", 
+				"Registrieren", 
+				"Einkaufen", 
+				"Profil", 
+				"Verwaltung"};
 		JPanel leiste = new JPanel();
 		
 		leiste.setLayout(new GridLayout(5,1));
