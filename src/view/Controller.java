@@ -31,7 +31,7 @@ public class Controller implements ActionListener
 	
 	private JFrame frame = new JFrame("InternetzLaden");
 	private JPanel mainPanel = new JPanel();
-	private JPanel ausgabe = login.anmelden();
+	private JPanel ausgabe =  new JPanel();
 	private JPanel statusleiste = menueLeisteErstellen();
 	
 	public void start()
@@ -72,6 +72,7 @@ public class Controller implements ActionListener
 	
 	public void actionPerformed(ActionEvent e)
 	{
+		mainPanel.remove(1);
 		String Befehl = e.getActionCommand();
 		if (Befehl.equals("Anmelden"))
 		{
@@ -94,7 +95,8 @@ public class Controller implements ActionListener
 		{
 			System.out.println("Verwaltung!");
 		}
-		frame.revalidate();
+		mainPanel.add("Center", ausgabe);
+		mainPanel.validate();
 	}
 }
 	

@@ -12,7 +12,6 @@ public class LogInAnsicht
 	{
 		JPanel login = new JPanel();
 		login.setLayout(new FlowLayout());
-		login.setBackground(new Color(200,200,200));
 		login.add(new TextField("Email"));
 		login.add(new TextField("Passwort"));
 		login.add(new JButton("Ok"));
