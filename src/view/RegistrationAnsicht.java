@@ -56,6 +56,7 @@ public class RegistrationAnsicht implements ActionListener
 	{
 		if (e.getActionCommand().equals("Ok"))
 		{
+			zeile.getComponent(1);
 			System.out.println("Button");
 		}
 		if (e.getActionCommand().equals("Yeah"))
