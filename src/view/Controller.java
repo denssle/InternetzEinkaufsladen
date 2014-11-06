@@ -3,21 +3,25 @@ package view;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.GridLayout;
 import java.awt.Toolkit;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+
 import logikabteilung.Artikelverwaltung;
 import logikabteilung.Nutzerverwaltung;
-import view.HauptmenueAnsicht;
 import view.LogInAnsicht;
 
 
-public class Controller
+public class Controller implements ActionListener 
 {
 	private Nutzerverwaltung nutzerLogik = new Nutzerverwaltung();
 	private Artikelverwaltung artikelLogik = new Artikelverwaltung();
 		
-	private HauptmenueAnsicht hauptmenue = new HauptmenueAnsicht();
 	private LogInAnsicht login = new LogInAnsicht();
 	private RegistrationAnsicht registration = new RegistrationAnsicht();
 	private EinkaufAnsicht einkauf = new EinkaufAnsicht();
@@ -26,8 +30,9 @@ public class Controller
 	private ArtikelCRUD artikel = new ArtikelCRUD();
 	
 	private JFrame frame = new JFrame("InternetzLaden");
-	
-	JPanel mainPanel = new JPanel();
+	private JPanel mainPanel = new JPanel();
+	private JPanel ausgabe = login.anmelden();
+	private JPanel statusleiste = menueLeisteErstellen();
 	
 	public void start()
 	{
@@ -37,22 +42,59 @@ public class Controller
 		int y = (int)((d.height - frame.getSize().height) / 2);
 		frame.setLocation(x, y);
 		frame.setDefaultCloseOperation(javax.swing.JFrame.EXIT_ON_CLOSE);
+		
 		mainPanel.setLayout(new BorderLayout());
 		mainPanel.setBackground(new Color(100,100,100));
-
-		JPanel leiste = hauptmenue.auswahlmenue();
-		JPanel ausgabe;
-		//ausgabe = login.anmelden();
-		//ausgabe = artikel.anzeigen();
-		//ausgabe = profil.profilAusgeben();
-		ausgabe = registration.userAnlegen();
-		//ausgabe = einkauf.start();
-		
-		mainPanel.add("West", leiste);
+		mainPanel.add("West", statusleiste);
 		mainPanel.add("Center", ausgabe);
+		
 		frame.getContentPane().add(mainPanel, BorderLayout.CENTER);
 		frame.setVisible(true);
-		//frame.revalidate();
+	}
+	
+	public JPanel menueLeisteErstellen()
+	{
+		String[] buttonlabels = {"Anmelden", "Registrieren", "Einkaufen", "Profil", "Verwaltung"};
+		JPanel leiste = new JPanel();
+		
+		leiste.setLayout(new GridLayout(5,1));
+		leiste.setPreferredSize(new Dimension(200, 600));
+		
+		for(int i = 0; i<buttonlabels.length; i++)
+		{
+			JButton neuerButton = new JButton(buttonlabels[i]);
+			neuerButton.addActionListener(this);
+			leiste.add(neuerButton);
+		}
+		
+		return leiste;
+	}
+	
+	public void actionPerformed(ActionEvent e)
+	{
+		String Befehl = e.getActionCommand();
+		if (Befehl.equals("Anmelden"))
+		{
+			ausgabe = login.anmelden();
+		}
+		else if(Befehl.equals("Registrieren"))
+		{
+			ausgabe = registration.userAnlegen();
+		}
+		else if(Befehl.equals("Einkaufen"))
+		{
+			ausgabe = einkauf.start();
+			//ausgabe = artikel.anzeigen();
+		}
+		else if(Befehl.equals("Profil"))
+		{
+			ausgabe = profil.profilAusgeben();
+		}
+		else if(Befehl.equals("Verwaltung"))
+		{
+			System.out.println("Verwaltung!");
+		}
+		frame.revalidate();
 	}
 }
 	
