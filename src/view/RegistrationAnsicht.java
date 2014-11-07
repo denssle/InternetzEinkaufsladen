@@ -39,7 +39,7 @@ public class RegistrationAnsicht implements ActionListener
 		{
 			zeile.add(new JLabel(daten[i]));
 			JTextField input = new JTextField("Hier bitte "+daten[i]+" eingeben.");
-			input.setName("Yeah");
+			input.setName(daten[i]);
 			input.addActionListener(this);
 			zeile.add(input);
 		}
@@ -56,8 +56,10 @@ public class RegistrationAnsicht implements ActionListener
 	{
 		if (e.getActionCommand().equals("Ok"))
 		{
-			zeile.getComponent(1);
-			System.out.println("Button");
+			for(int i = 1; i < zeile.getComponents().length;i +=2)
+			{
+				System.out.println(zeile.getComponents()[i].getName());
+			}
 		}
 		if (e.getActionCommand().equals("Yeah"))
 		{
