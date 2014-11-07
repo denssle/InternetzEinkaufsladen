@@ -15,24 +15,23 @@ import javax.swing.JTextField;
 public class RegistrationAnsicht implements ActionListener
 {	
 	private JPanel zeile = new JPanel();
-	
+	private String[] daten = {"Name", "Email", "Geburtstag", "Strasse", "Hausnummer", "Stadt", "Postleitzahl", "Password"};
+	private Map<String, String> neuerNutzerMap = new HashMap<String, String>();
 	public Map<String, String> neuerNutzer()
 	{
-		Map<String, String> neuerNutzerMap = new HashMap<String, String>();
-		String[] daten = {"name", "email", "geburtstag", "strasse", "hausnummer", "stadt", "plz", "password"};
+		
 		for(int i = 0; i < daten.length; i++)
 		{
 			System.out.println(daten[i]+"?");
-			//neuerNutzerMap.put(daten[i],eingabe.einlesenString());
+			
 		}
 		return neuerNutzerMap;
 	}
 
 	public JPanel userAnlegen()
 	{
-		JPanel main = new JPanel();
-		main.setLayout(new FlowLayout());
-		String[] daten = {"Name", "Email", "Geburtstag", "Strasse", "Hausnummer", "Stadt", "Postleitzahl", "Password"};
+		JPanel userLeiste = new JPanel();
+		userLeiste.setLayout(new FlowLayout());
 		
 		zeile.setLayout(new GridLayout(daten.length+1,2));
 		for(int i = 0; i<daten.length; i++)
@@ -47,9 +46,9 @@ public class RegistrationAnsicht implements ActionListener
 		JButton ok = new JButton("Ok");
 		ok.addActionListener(this);
 		zeile.add(ok);
-		main.add(zeile);
+		userLeiste.add(zeile);
 		
-		return main;
+		return userLeiste;
 	}
 
 	public void actionPerformed(ActionEvent e)
@@ -58,12 +57,10 @@ public class RegistrationAnsicht implements ActionListener
 		{
 			for(int i = 1; i < zeile.getComponents().length;i +=2)
 			{
-				System.out.println(zeile.getComponents()[i].getName());
+				JTextField feldInhalt= (JTextField) zeile.getComponents()[i];
+				System.out.println(feldInhalt.getText());
+				neuerNutzerMap.put(feldInhalt.getName(), feldInhalt.getText());
 			}
-		}
-		if (e.getActionCommand().equals("Yeah"))
-		{
-			System.out.println("????");
 		}
 	}
 }
