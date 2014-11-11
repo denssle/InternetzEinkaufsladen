@@ -28,11 +28,13 @@ public class Controller implements ActionListener
 	private WarenkorbAnsicht warenkorb = new WarenkorbAnsicht();
 	private NutzerAnsicht profil = new NutzerAnsicht();
 	private ArtikelCRUD artikel = new ArtikelCRUD();
+	private Ladebalken ladeView = new Ladebalken();
 	
 	private JFrame frame = new JFrame("InternetzLaden");
 	private JPanel mainPanel = new JPanel();
 	private JPanel ausgabe =  new JPanel();
 	private JPanel statusleiste = menueLeisteErstellen();
+	
 	
 	public void start()
 	{
@@ -98,7 +100,7 @@ public class Controller implements ActionListener
 		}
 		else if(Befehl.equals("Verwaltung"))
 		{
-			System.out.println("Verwaltung!");
+			ausgabe = ladeView.ladevorgang();
 		}
 		mainPanel.add("Center", ausgabe);
 		mainPanel.validate();

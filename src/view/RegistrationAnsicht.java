@@ -20,11 +20,9 @@ public class RegistrationAnsicht implements ActionListener
 	
 	public Map<String, String> neuerNutzer()
 	{
-		
 		for(int i = 0; i < daten.length; i++)
 		{
 			System.out.println(daten[i]+"?");
-			
 		}
 		return neuerNutzerMap;
 	}
