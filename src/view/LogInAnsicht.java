@@ -1,11 +1,8 @@
 package view;
 
-import java.awt.Color;
 import java.awt.FlowLayout;
-import java.awt.TextField;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-
 import javax.swing.JButton;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
@@ -14,6 +11,7 @@ public class LogInAnsicht implements ActionListener
 {	
 	private JTextField emailField = new JTextField("Email", 12);
 	private JTextField passwortField = new JTextField("Passwort", 12);
+	private String[] loginData;
 	
 	public JPanel anmelden()
 	{
@@ -41,6 +39,8 @@ public class LogInAnsicht implements ActionListener
 		if (e.getActionCommand().equals("Ok"))
 		{
 			System.out.println(emailField.getText()+" "+passwortField.getText());
+			loginData[0]=emailField.getText();
+			loginData[1]=passwortField.getText();
 		}
 	}
 }

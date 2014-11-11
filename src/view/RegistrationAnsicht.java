@@ -17,6 +17,7 @@ public class RegistrationAnsicht implements ActionListener
 	private JPanel zeile = new JPanel();
 	private String[] daten = {"Name", "Email", "Geburtstag", "Strasse", "Hausnummer", "Stadt", "Postleitzahl", "Password"};
 	private Map<String, String> neuerNutzerMap = new HashMap<String, String>();
+	
 	public Map<String, String> neuerNutzer()
 	{
 		
