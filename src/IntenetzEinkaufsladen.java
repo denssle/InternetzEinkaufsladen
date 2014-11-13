@@ -21,4 +21,7 @@ Wiederverwertbare Meneu View für alle views.
 - kein name
 - ungültiger name / pw
 - scanner falsch
+
+Jeder View ein eigener Controller; Package Model, Modelnamen & Viewnamen abpassen. 
+
 */
