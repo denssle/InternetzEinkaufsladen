@@ -11,20 +11,31 @@ public class Ladebalken
 	private static int ende = 100;
 	static JProgressBar bar = new JProgressBar(start, ende);
 	
-	public JPanel ladevorgang()
+	public JPanel ladevorgangInit()
 	{
 		bar.setValue(0);
-		bar.setVisible(true);
+		bar.setStringPainted(true);
 		JPanel laden = new JPanel();
 		laden.setLayout(new FlowLayout());
 		
-		for(int i=0; i<= ende; i++)
+		laden.add(bar);
+		return laden;
+	}
+	
+	public void ladevorgangUpdate()
+	{
+		for(int i=1; i<= bar.getMaximum(); i++)
 		{
 			bar.setValue(i);
 			bar.setString("Fortschritt: "+i+"%");
-			
+			try 
+			{
+				Thread.sleep(50);
+			}
+			catch (InterruptedException e)
+			{
+				e.printStackTrace();
+			}
 		}
-		laden.add(bar);
-		return laden;
 	}
 }

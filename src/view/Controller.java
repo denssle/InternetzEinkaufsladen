@@ -100,7 +100,8 @@ public class Controller implements ActionListener
 		}
 		else if(Befehl.equals("Verwaltung"))
 		{
-			ausgabe = ladeView.ladevorgang();
+			ausgabe = ladeView.ladevorgangInit();
+			ladeView.ladevorgangUpdate();
 		}
 		mainPanel.add("Center", ausgabe);
 		mainPanel.validate();
