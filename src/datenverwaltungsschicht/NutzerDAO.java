@@ -42,16 +42,16 @@ public class NutzerDAO
 		return null;
 	}
 
-	public boolean benutzerVorhanden(String email, String passwort)
+	public Benutzer benutzerVorhanden(String email, String passwort)
 	{
 		Benutzer mailBenutzer = benutzerMailVorhanden(email);
 		if(mailBenutzer != null)
 		{
 			if(mailBenutzer.getPasswort().equals(passwort))
 			{
-				return true;
+				return mailBenutzer;
 			}
 		}
-		return false;
+		return null;
 	}
 }

@@ -60,6 +60,8 @@ public class RegistrationAnsicht implements ActionListener
 			try
 			{
 				nutzerLogik.neuerNutzer(neuerNutzerMap);
+				JOptionPane.showMessageDialog(null,nutzerLogik.getAktuellerBenuzer().getName()+" hat sich angemeldet.");
+				Controller.viewWechseln(new JPanel());
 			}
 			catch(IllegalArgumentException error)
 			{

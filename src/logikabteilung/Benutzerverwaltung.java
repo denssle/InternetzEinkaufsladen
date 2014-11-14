@@ -3,10 +3,11 @@ import java.util.Map;
 import datenverwaltungsschicht.NutzerDAO;
 import logikabteilung.Benutzer;
 
-public class Benutzerverwaltung {
+public class Benutzerverwaltung
+{
 	private NutzerDAO nutzerDAO = new NutzerDAO();
 	private static int userzahl;
-	private Benutzer aktuellerUser = new Benutzer();
+	private static Benutzer aktuellerUser = null;
 	
 	public void neuerNutzer(Map<String, String> neuerUserMap)
 	{
@@ -42,10 +43,16 @@ public class Benutzerverwaltung {
 	{
 		//do doo do
 	}
+	public Benutzer getAktuellerBenuzer()
+	{
+		return aktuellerUser;
+	}
 	public String anmelden(String email, String passwort)
 	{
-		if(nutzerDAO.benutzerVorhanden(email, passwort))
+		Benutzer anmeldeversuch = nutzerDAO.benutzerVorhanden(email, passwort);
+		if(anmeldeversuch!= null)
 			{
+				aktuellerUser=anmeldeversuch;
 				return("Anmeldung erfolgreich.");
 			}
 		return("Es wurde kein passender User gefunden. ");

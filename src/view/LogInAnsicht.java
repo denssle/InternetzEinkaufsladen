@@ -22,6 +22,22 @@ public class LogInAnsicht implements ActionListener
 	
 	public JPanel anmelden()
 	{
+		if(nutzerLogik.getAktuellerBenuzer() == null)
+		{
+			return nichtAngemeldet();
+		}
+		return angemeldet();
+	}
+	private JPanel angemeldet()
+	{
+		JPanel login = new JPanel();
+		login.setLayout(new FlowLayout());	
+		
+		login.add(new JLabel("Sie sind bereits angemeldet, sie Pfosten. "));
+		return login;
+	}
+	public JPanel nichtAngemeldet()
+	{
 		JPanel login = new JPanel();
 		login.setLayout(new FlowLayout());		
 		
@@ -46,7 +62,6 @@ public class LogInAnsicht implements ActionListener
 		login.add(registrationsButton);
 		return login;
 	}
-
 	public void actionPerformed(ActionEvent e)
 	{
 		if (e.getActionCommand().equals("Ok"))
