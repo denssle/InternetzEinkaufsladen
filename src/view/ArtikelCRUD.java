@@ -10,11 +10,15 @@ import javax.swing.AbstractButton;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
+import logikabteilung.Artikelverwaltung;
+
 public class ArtikelCRUD implements ActionListener 
 {
+	private Artikelverwaltung artikelverwaltung = new Artikelverwaltung();
 	private JComboBox<String> moeglicheKategorien;
 	private String[] beschriftungen = {"Artikelname", "Preis", "Beschreibung"};
 	private JTextField[] textFelder = new JTextField[beschriftungen.length];
@@ -30,7 +34,7 @@ public class ArtikelCRUD implements ActionListener
 		for(int i = 0; i<beschriftungen.length; i++)
 		{
 			zeile.add(new JLabel(beschriftungen[i]));
-			JTextField zeilenText = new JTextField(beschriftungen[i]);
+			JTextField zeilenText = new JTextField();
 			textFelder[i]=zeilenText;
 			zeilenText.addActionListener(this);
 			zeile.add(zeilenText);
@@ -49,7 +53,6 @@ public class ArtikelCRUD implements ActionListener
 		return main;
 	}
 
-	@Override
 	public void actionPerformed(ActionEvent e)
 	{
 		String eingabe = e.getActionCommand();
@@ -62,8 +65,24 @@ public class ArtikelCRUD implements ActionListener
 				System.out.println(feldInhalt.getText());
 				neuerArtikelMap.put(feldInhalt.getName(), feldInhalt.getText());
 			}
-			System.out.println(moeglicheKategorien.getSelectedObjects());
-			neuerArtikelMap.put("Kategorie",moeglicheKategorien.getSelectedObjects().toString());
+			String kategorieWahl = moeglicheKategorien.getItemAt((moeglicheKategorien.getSelectedIndex()));
+			System.out.println(kategorieWahl);
+			neuerArtikelMap.put("Kategorie",kategorieWahl );
+			speichern();
+		}
+	}
+
+	private void speichern()
+	{
+		try
+		{
+			artikelverwaltung.artikelSpeichern(neuerArtikelMap);
+			
+			Controller.viewWechseln(new JPanel());
+		}
+		catch(IllegalArgumentException error)
+		{
+			JOptionPane.showMessageDialog(null,error.getMessage());
 		}
 		
 	}

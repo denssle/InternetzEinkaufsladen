@@ -27,22 +27,21 @@ public class Artikelverwaltung
 	{
 		if(kategorie.isEmpty())
 		{
-			throw new IllegalArgumentException();
+			throw new IllegalArgumentException("Wie hast du das denn geschafft?!");
 		}
 	}
 	private void namensVerifikation(String name)
 	{
 		if(name.isEmpty())
 		{
-			throw new IllegalArgumentException();
+			throw new IllegalArgumentException("Kein Name?!");
 		}
 	}
 	private void preisVerifikation(double preis)
 	{
 		if(preis <= 0)
 		{
-			System.out.println("Umsonst ist nicht!");
-			throw new IllegalArgumentException();
+			throw new IllegalArgumentException("Umsonst ist nicht!");
 		}
 	}
 	public Map getAlleArtikel()

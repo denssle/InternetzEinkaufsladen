@@ -14,6 +14,7 @@ public class VerwaltungsAnsicht implements ActionListener
 {
 	private ArtikelCRUD artikelView = new ArtikelCRUD();
 	private String[] beschriftungen = {"Buch hinzufügen"};
+	
 	public JPanel startMenue()
 	{
 		JPanel verwaltungsView = new JPanel();
