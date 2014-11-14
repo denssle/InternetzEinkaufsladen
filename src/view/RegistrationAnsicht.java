@@ -12,15 +12,18 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
+import logikabteilung.Benutzerverwaltung;
+
 public class RegistrationAnsicht implements ActionListener
 {	
-	private static JPanel zeile = new JPanel();
+	private Benutzerverwaltung nutzerLogik = new Benutzerverwaltung();
 	private String[] daten = {"Name", "Email", "Geburtstag", "Strasse", "Hausnummer", "Stadt", "Postleitzahl", "Password"};
+	private JTextField[] textFelder = new JTextField[daten.length];
 	private Map<String, String> neuerNutzerMap = new HashMap<String, String>();
 
 	public JPanel userAnlegen()
 	{
-		zeile.removeAll();
+		JPanel zeile = new JPanel();
 		JPanel userLeiste = new JPanel();
 		userLeiste.setLayout(new FlowLayout());
 		
@@ -31,6 +34,7 @@ public class RegistrationAnsicht implements ActionListener
 			JTextField input = new JTextField("Hier bitte "+daten[i]+" eingeben.");
 			input.setName(daten[i]);
 			input.addActionListener(this);
+			textFelder[i]=input;
 			zeile.add(input);
 		}
 		
@@ -46,12 +50,13 @@ public class RegistrationAnsicht implements ActionListener
 	{
 		if (e.getActionCommand().equals("Ok"))
 		{
-			for(int i = 1; i < zeile.getComponents().length;i +=2)
+			for(int i = 0; i < textFelder.length;i ++)
 			{
-				JTextField feldInhalt= (JTextField) zeile.getComponents()[i];
+				JTextField feldInhalt= textFelder[i];
 				System.out.println(feldInhalt.getText());
 				neuerNutzerMap.put(feldInhalt.getName(), feldInhalt.getText());
 			}
+			nutzerLogik.neuerNutzer(neuerNutzerMap);
 		}
 	}
 }

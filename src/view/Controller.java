@@ -13,13 +13,12 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 
 import logikabteilung.Artikelverwaltung;
-import logikabteilung.Nutzerverwaltung;
+import logikabteilung.Benutzerverwaltung;
 import view.LogInAnsicht;
 
 
 public class Controller implements ActionListener 
 {
-	private Nutzerverwaltung nutzerLogik = new Nutzerverwaltung();
 	private Artikelverwaltung artikelLogik = new Artikelverwaltung();
 		
 	private LogInAnsicht login = new LogInAnsicht();
@@ -28,7 +27,6 @@ public class Controller implements ActionListener
 	private WarenkorbAnsicht warenkorb = new WarenkorbAnsicht();
 	private BenutzerAnsicht profil = new BenutzerAnsicht();
 	private ArtikelCRUD artikel = new ArtikelCRUD();
-	private LadebalkenAnsicht ladeView = new LadebalkenAnsicht();
 	
 	private JFrame frame = new JFrame("InternetzLaden");
 	private JPanel mainPanel = new JPanel();
@@ -100,7 +98,7 @@ public class Controller implements ActionListener
 		}
 		else if(Befehl.equals("Verwaltung"))
 		{
-			ausgabe = ladeView.ladevorgangInit();
+			
 		}
 		mainPanel.add("Center", ausgabe);
 		mainPanel.validate();

@@ -3,29 +3,30 @@ import java.util.Map;
 import datenverwaltungsschicht.NutzerDAO;
 import logikabteilung.Benutzer;
 
-public class Nutzerverwaltung {
+public class Benutzerverwaltung {
 	private NutzerDAO nutzerDAO = new NutzerDAO();
 	private static int userzahl;
 	private Benutzer aktuellerUser = new Benutzer();
 	
 	public void neuerNutzer(Map<String, String> neuerUserMap)
 	{
+		System.out.println(neuerUserMap);
 		//Eingaben werden verifiziert...
-		namenVerifikation(neuerUserMap.get("name"));
-		emailVerifikation(neuerUserMap.get("email"));
-		passwortVerifikation(neuerUserMap.get("password"));
+		namenVerifikation(neuerUserMap.get("Name"));
+		emailVerifikation(neuerUserMap.get("Email"));
+		passwortVerifikation(neuerUserMap.get("Password"));
 		
 		//Nach bestandener Verifikation wird der neue User angelegt
 		Benutzer neuerUser = new Benutzer();
 		neuerUser.setId(userzahl++);
-		neuerUser.setName(neuerUserMap.get("name"));
-		neuerUser.setEmail(neuerUserMap.get("email"));
-		neuerUser.setGeburtstag(neuerUserMap.get("geburtstag"));
-		neuerUser.setHausnummer(neuerUserMap.get("hausnummer"));
-		neuerUser.setPlz(neuerUserMap.get("plz"));
-		neuerUser.setStadt(neuerUserMap.get("stadt"));
-		neuerUser.setStrasse(neuerUserMap.get("strasse"));
-		neuerUser.setPasswort(neuerUserMap.get("passwort"));
+		neuerUser.setName(neuerUserMap.get("Name"));
+		neuerUser.setEmail(neuerUserMap.get("Email"));
+		neuerUser.setGeburtstag(neuerUserMap.get("Geburtstag"));
+		neuerUser.setHausnummer(neuerUserMap.get("Hausnummer"));
+		neuerUser.setPlz(neuerUserMap.get("Postleitzahl"));
+		neuerUser.setStadt(neuerUserMap.get("Stadt"));
+		neuerUser.setStrasse(neuerUserMap.get("Strasse"));
+		neuerUser.setPasswort(neuerUserMap.get("Passwort"));
 		
 		aktuellerUser = neuerUser;
 		
