@@ -14,21 +14,13 @@ import javax.swing.JTextField;
 
 public class RegistrationAnsicht implements ActionListener
 {	
-	private JPanel zeile = new JPanel();
+	private static JPanel zeile = new JPanel();
 	private String[] daten = {"Name", "Email", "Geburtstag", "Strasse", "Hausnummer", "Stadt", "Postleitzahl", "Password"};
 	private Map<String, String> neuerNutzerMap = new HashMap<String, String>();
-	
-	public Map<String, String> neuerNutzer()
-	{
-		for(int i = 0; i < daten.length; i++)
-		{
-			System.out.println(daten[i]+"?");
-		}
-		return neuerNutzerMap;
-	}
 
 	public JPanel userAnlegen()
 	{
+		zeile.removeAll();
 		JPanel userLeiste = new JPanel();
 		userLeiste.setLayout(new FlowLayout());
 		

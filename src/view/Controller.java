@@ -26,9 +26,9 @@ public class Controller implements ActionListener
 	private RegistrationAnsicht registration = new RegistrationAnsicht();
 	private EinkaufAnsicht einkauf = new EinkaufAnsicht();
 	private WarenkorbAnsicht warenkorb = new WarenkorbAnsicht();
-	private NutzerAnsicht profil = new NutzerAnsicht();
+	private BenutzerAnsicht profil = new BenutzerAnsicht();
 	private ArtikelCRUD artikel = new ArtikelCRUD();
-	private Ladebalken ladeView = new Ladebalken();
+	private LadebalkenAnsicht ladeView = new LadebalkenAnsicht();
 	
 	private JFrame frame = new JFrame("InternetzLaden");
 	private JPanel mainPanel = new JPanel();
