@@ -20,18 +20,17 @@ import view.LogInAnsicht;
 public class Controller implements ActionListener 
 {
 	private Artikelverwaltung artikelLogik = new Artikelverwaltung();
-		
 	private LogInAnsicht login = new LogInAnsicht();
 	private EinkaufAnsicht einkauf = new EinkaufAnsicht();
 	private WarenkorbAnsicht warenkorb = new WarenkorbAnsicht();
 	private BenutzerAnsicht profil = new BenutzerAnsicht();
 	private ArtikelCRUD artikel = new ArtikelCRUD();
 	
-	private JFrame frame = new JFrame("InternetzLaden");
-	private JPanel mainPanel = new JPanel(); 	
+	private static JPanel mainPanel = new JPanel(); 	
 	
 	public void start()
 	{
+		JFrame frame = new JFrame("InternetzLaden");
 		JPanel ausgabe =  new JPanel();
 		JPanel statusleiste = menueLeisteErstellen();
 		frame.setSize(800,800);
@@ -54,10 +53,10 @@ public class Controller implements ActionListener
 	{
 		String[] buttonlabels = {
 				"Anmelden", 
-				"Registrieren", 
+				"Leer", 
 				"Einkaufen", 
 				"Profil", 
-				"Verwaltung"};
+				"Leer"};
 		JPanel leiste = new JPanel();
 		
 		leiste.setLayout(new GridLayout(5,1));
@@ -73,7 +72,7 @@ public class Controller implements ActionListener
 		return leiste;
 	}
 	
-	public void viewWechseln(JPanel neueView)
+	public static void viewWechseln(JPanel neueView)
 	{
 		mainPanel.remove(1);
 		mainPanel.add("Center", neueView);

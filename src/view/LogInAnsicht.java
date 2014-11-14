@@ -16,10 +16,11 @@ public class LogInAnsicht implements ActionListener
 	private JTextField emailField = new JTextField("Email hier", 12);
 	private JTextField passwortField = new JPasswordField("", 12);
 	private String[] loginData = new String[1];
-	JPanel login = new JPanel();
+	
+	
 	public JPanel anmelden()
 	{
-		
+		JPanel login = new JPanel();
 		login.setLayout(new FlowLayout());		
 		
 		emailField.setName("Email");
@@ -55,7 +56,7 @@ public class LogInAnsicht implements ActionListener
 		
 		if(e.getActionCommand().equals("Registrieren"))
 		{
-			login = registration.userAnlegen();
+			Controller.viewWechseln(registration.userAnlegen());
 		}
 	}
 }

@@ -9,6 +9,7 @@ import java.util.Map;
 
 import javax.swing.JButton;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
@@ -56,7 +57,14 @@ public class RegistrationAnsicht implements ActionListener
 				System.out.println(feldInhalt.getText());
 				neuerNutzerMap.put(feldInhalt.getName(), feldInhalt.getText());
 			}
-			nutzerLogik.neuerNutzer(neuerNutzerMap);
+			try
+			{
+				nutzerLogik.neuerNutzer(neuerNutzerMap);
+			}
+			catch(IllegalArgumentException error)
+			{
+				JOptionPane.showMessageDialog(null,error.getMessage());
+			}
 		}
 	}
 }

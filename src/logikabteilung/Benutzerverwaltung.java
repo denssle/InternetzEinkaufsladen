@@ -10,7 +10,7 @@ public class Benutzerverwaltung {
 	
 	public void neuerNutzer(Map<String, String> neuerUserMap)
 	{
-		System.out.println(neuerUserMap);
+		//System.out.println(neuerUserMap);
 		//Eingaben werden verifiziert...
 		namenVerifikation(neuerUserMap.get("Name"));
 		emailVerifikation(neuerUserMap.get("Email"));
@@ -54,25 +54,21 @@ public class Benutzerverwaltung {
 	{
 		if(name.isEmpty())
 		{
-			System.out.println("Der Name ist Müll. So wie Sie!");
-			throw new IllegalArgumentException();
+			throw new IllegalArgumentException("Der Name ist Müll. So wie Sie!");
 		}
 	}
 	public void emailVerifikation(String email)
 	{
-		if(!email.contains("@") && !email.contains("."))
+		if(!email.contains("@") || !email.contains("."))
 		{
-			System.out.println("Das soll ne EmailAdresse sein, Sie Versager?!");
-			throw new IllegalArgumentException();
+			throw new IllegalArgumentException("Das soll ne EmailAdresse sein, Sie Versager?!");
 		}
-		
 	}
 	public void passwortVerifikation(String passwort)
 	{
-		if(passwort.isEmpty())
+		if(passwort.isEmpty() || passwort.length() < 4)
 		{
-			System.out.println("Schlechtestes Passwort ever!");
-			throw new IllegalArgumentException();
+			throw new IllegalArgumentException("Schlechtestes Passwort ever!");
 		}
 	}
 }
