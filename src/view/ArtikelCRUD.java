@@ -15,7 +15,11 @@ import javax.swing.JTextField;
 
 public class ArtikelCRUD implements ActionListener 
 {
+	private JComboBox<String> moeglicheKategorien;
 	private String[] beschriftungen = {"Artikelname", "Preis", "Beschreibung"};
+	private JTextField[] textFelder = new JTextField[beschriftungen.length];
+	private Map<String, String> neuerArtikelMap = new HashMap<String, String>();
+	
 	public JPanel anzeigen()
 	{
 		JPanel main = new JPanel();
@@ -27,28 +31,21 @@ public class ArtikelCRUD implements ActionListener
 		{
 			zeile.add(new JLabel(beschriftungen[i]));
 			JTextField zeilenText = new JTextField(beschriftungen[i]);
+			textFelder[i]=zeilenText;
 			zeilenText.addActionListener(this);
 			zeile.add(zeilenText);
 		}
 		
 		zeile.add(new JLabel("Kategorie:"));
 		String[] artikelKategorien = {"Buch", "TabletPC"};
-		JComboBox<String> moeglicheKategorien = new JComboBox<String>(artikelKategorien);
+		moeglicheKategorien = new JComboBox<String>(artikelKategorien);
 		zeile.add(moeglicheKategorien);
 		
 		JButton button = new JButton("Ok");
 		button.addActionListener(this);
 		zeile.add(button);
 		
-		JPanel[] panelArray = {zeile, zeile, zeile, zeile,zeile};
-		JPanel zwischenschritt = new JPanel();
-		zwischenschritt.setLayout(new GridLayout(panelArray.length+1,2));
-		for(int i=0; i<panelArray.length; i++)
-		{
-			zwischenschritt.add(panelArray[i]);
-		}
-		
-		main.add(zwischenschritt);
+		main.add(zeile);
 		return main;
 	}
 
@@ -59,7 +56,14 @@ public class ArtikelCRUD implements ActionListener
 
 		if (eingabe.equals("Ok"))
 		{
-			System.out.println("X");
+			for(int i = 0; i<beschriftungen.length; i++)
+			{
+				JTextField feldInhalt= textFelder[i];
+				System.out.println(feldInhalt.getText());
+				neuerArtikelMap.put(feldInhalt.getName(), feldInhalt.getText());
+			}
+			System.out.println(moeglicheKategorien.getSelectedObjects());
+			neuerArtikelMap.put("Kategorie",moeglicheKategorien.getSelectedObjects().toString());
 		}
 		
 	}
