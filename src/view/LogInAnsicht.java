@@ -36,7 +36,7 @@ public class LogInAnsicht implements ActionListener
 		login.add(new JLabel("Sie sind bereits angemeldet, sie Pfosten. "));
 		return login;
 	}
-	public JPanel nichtAngemeldet()
+	private JPanel nichtAngemeldet()
 	{
 		JPanel login = new JPanel();
 		login.setLayout(new FlowLayout());		

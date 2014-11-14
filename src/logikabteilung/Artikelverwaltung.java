@@ -23,21 +23,21 @@ public class Artikelverwaltung
 		artikelDAO.speichern(zuSpeichernderArtikel);
 	}
 	
-	public void kategorieVerifikation(String kategorie)
+	private void kategorieVerifikation(String kategorie)
 	{
 		if(kategorie.isEmpty())
 		{
 			throw new IllegalArgumentException();
 		}
 	}
-	public void namensVerifikation(String name)
+	private void namensVerifikation(String name)
 	{
 		if(name.isEmpty())
 		{
 			throw new IllegalArgumentException();
 		}
 	}
-	public void preisVerifikation(double preis)
+	private void preisVerifikation(double preis)
 	{
 		if(preis <= 0)
 		{

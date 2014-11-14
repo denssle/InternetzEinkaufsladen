@@ -49,13 +49,13 @@ public class Controller implements ActionListener
 		frame.setVisible(true);
 	}
 	
-	public JPanel menueLeisteErstellen()
+	private JPanel menueLeisteErstellen()
 	{
 		String[] buttonlabels = {
 				"Anmelden", 
-				"Leer", 
 				"Einkaufen", 
 				"Profil", 
+				"Leer", 
 				"Leer"};
 		JPanel leiste = new JPanel();
 		
@@ -87,22 +87,13 @@ public class Controller implements ActionListener
 		{
 			menuePanel = login.anmelden();
 		}
-		else if(Befehl.equals("Registrieren"))
-		{
-			
-		}
 		else if(Befehl.equals("Einkaufen"))
 		{
 			menuePanel = einkauf.start();
-			//ausgabe = artikel.anzeigen();
 		}
 		else if(Befehl.equals("Profil"))
 		{
 			menuePanel = profil.profilAusgeben();
-		}
-		else if(Befehl.equals("Verwaltung"))
-		{
-			
 		}
 		viewWechseln(menuePanel);
 	}

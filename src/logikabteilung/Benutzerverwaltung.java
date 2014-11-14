@@ -61,21 +61,21 @@ public class Benutzerverwaltung
 	{
 		
 	}
-	public void namenVerifikation(String name)
+	private void namenVerifikation(String name)
 	{
 		if(name.isEmpty())
 		{
 			throw new IllegalArgumentException("Der Name ist Müll. So wie Sie!");
 		}
 	}
-	public void emailVerifikation(String email)
+	private void emailVerifikation(String email)
 	{
 		if(!email.contains("@") || !email.contains("."))
 		{
 			throw new IllegalArgumentException("Das soll ne EmailAdresse sein, Sie Versager?!");
 		}
 	}
-	public void passwortVerifikation(String passwort)
+	private void passwortVerifikation(String passwort)
 	{
 		if(passwort.isEmpty() || passwort.length() < 4)
 		{

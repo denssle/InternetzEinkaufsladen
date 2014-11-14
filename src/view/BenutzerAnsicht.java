@@ -18,9 +18,26 @@ public class BenutzerAnsicht
 	public JPanel profilAusgeben()
 	{
 		Benutzer aktuell = nutzerLogik.getAktuellerBenuzer();
-		System.out.println(aktuell.getName());
+		if(aktuell != null)
+		{
+			return profilAngemeldeterAusgeben(aktuell);
+		}
+		return profilKeinAngemeldeterBenutzer();
+	}
+
+	private JPanel profilKeinAngemeldeterBenutzer()
+	{
 		JPanel main = new JPanel();
 		main.setLayout(new FlowLayout());
+		main.add(new JLabel("Kein Benutzer angemeldet. "));
+		return main;
+	}
+
+	private JPanel profilAngemeldeterAusgeben(Benutzer aktuell)
+	{
+		JPanel main = new JPanel();
+		main.setLayout(new FlowLayout());
+	
 		String[] label = {"Name", "Email", "Geburtstag", "Strasse", "Hausnummer", "Stadt", "Postleitzahl"};
 		String[] daten = {aktuell.getName(), aktuell.getEmail(), aktuell.getGeburtstag(), aktuell.getStrasse(), aktuell.getHausnummer(), aktuell.getStadt(), aktuell.getPlz()};
 
