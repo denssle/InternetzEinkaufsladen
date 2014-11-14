@@ -5,7 +5,7 @@ import java.awt.FlowLayout;
 import javax.swing.JPanel;
 import javax.swing.JProgressBar;
 
-public class Ladebalken
+public class LadebalkenAnsicht
 {
 	private static int start = 0;
 	private static int ende = 100;

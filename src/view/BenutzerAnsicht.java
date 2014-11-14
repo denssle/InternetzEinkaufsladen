@@ -8,7 +8,7 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-public class NutzerAnsicht
+public class BenutzerAnsicht
 {
 	public JPanel profilAusgeben()
 	{
