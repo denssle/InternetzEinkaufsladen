@@ -6,17 +6,19 @@ import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
+import logikabteilung.Benutzerverwaltung;
+
 public class LogInAnsicht implements ActionListener
 {	
+	private Benutzerverwaltung nutzerLogik = new Benutzerverwaltung();
 	private RegistrationAnsicht registration = new RegistrationAnsicht();
 	private JTextField emailField = new JTextField("Email hier", 12);
-	private JTextField passwortField = new JPasswordField("", 12);
-	private String[] loginData = new String[1];
-	
+	private JTextField passwortField = new JPasswordField("", 12);	
 	
 	public JPanel anmelden()
 	{
@@ -50,8 +52,8 @@ public class LogInAnsicht implements ActionListener
 		if (e.getActionCommand().equals("Ok"))
 		{
 			System.out.println(emailField.getText()+" "+passwortField.getText());
-			loginData[0]=emailField.getText();
-			loginData[1]=passwortField.getText();
+			String anmeldeStatus = nutzerLogik.anmelden(emailField.getText(),passwortField.getText());
+			JOptionPane.showMessageDialog(null,anmeldeStatus);
 		}
 		
 		if(e.getActionCommand().equals("Registrieren"))

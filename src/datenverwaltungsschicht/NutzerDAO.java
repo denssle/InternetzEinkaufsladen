@@ -3,6 +3,7 @@ import logikabteilung.Benutzer;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Map.Entry;
 
 public class NutzerDAO
 {
@@ -27,5 +28,30 @@ public class NutzerDAO
 	public Map<Integer, Benutzer> getAlleNutzer()
 	{
 		return alleNutzer;
+	}
+	public Benutzer benutzerMailVorhanden(String email)
+	{
+		for (Entry<Integer, Benutzer> entry : alleNutzer.entrySet())
+		{
+		    System.out.println(entry.getKey() + "/" + entry.getValue());
+		    if(entry.getValue().getEmail().equals(email))
+		    {
+		    	return entry.getValue();
+		    }
+		}
+		return null;
+	}
+
+	public boolean benutzerVorhanden(String email, String passwort)
+	{
+		Benutzer mailBenutzer = benutzerMailVorhanden(email);
+		if(mailBenutzer != null)
+		{
+			if(mailBenutzer.getPasswort().equals(passwort))
+			{
+				return true;
+			}
+		}
+		return false;
 	}
 }

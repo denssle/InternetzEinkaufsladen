@@ -42,9 +42,13 @@ public class Benutzerverwaltung {
 	{
 		//do doo do
 	}
-	public void anmelden()
+	public String anmelden(String email, String passwort)
 	{
-		
+		if(nutzerDAO.benutzerVorhanden(email, passwort))
+			{
+				return("Anmeldung erfolgreich.");
+			}
+		return("Es wurde kein passender User gefunden. ");
 	}
 	public void abmelden()
 	{
