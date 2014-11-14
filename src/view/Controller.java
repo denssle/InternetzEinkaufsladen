@@ -22,20 +22,18 @@ public class Controller implements ActionListener
 	private Artikelverwaltung artikelLogik = new Artikelverwaltung();
 		
 	private LogInAnsicht login = new LogInAnsicht();
-	private RegistrationAnsicht registration = new RegistrationAnsicht();
 	private EinkaufAnsicht einkauf = new EinkaufAnsicht();
 	private WarenkorbAnsicht warenkorb = new WarenkorbAnsicht();
 	private BenutzerAnsicht profil = new BenutzerAnsicht();
 	private ArtikelCRUD artikel = new ArtikelCRUD();
 	
 	private JFrame frame = new JFrame("InternetzLaden");
-	private JPanel mainPanel = new JPanel();
-	private JPanel ausgabe =  new JPanel();
-	private JPanel statusleiste = menueLeisteErstellen();
-	
+	private JPanel mainPanel = new JPanel(); 	
 	
 	public void start()
 	{
+		JPanel ausgabe =  new JPanel();
+		JPanel statusleiste = menueLeisteErstellen();
 		frame.setSize(800,800);
 		Dimension d = Toolkit.getDefaultToolkit().getScreenSize();
 		int x = (int)((d.width - frame.getSize().width) / 2);
@@ -75,33 +73,39 @@ public class Controller implements ActionListener
 		return leiste;
 	}
 	
-	public void actionPerformed(ActionEvent e)
+	public void viewWechseln(JPanel neueView)
 	{
 		mainPanel.remove(1);
+		mainPanel.add("Center", neueView);
+		mainPanel.validate();
+	}
+	
+	public void actionPerformed(ActionEvent e)
+	{
+		JPanel menuePanel = new JPanel();
 		String Befehl = e.getActionCommand();
 		if (Befehl.equals("Anmelden"))
 		{
-			ausgabe = login.anmelden();
+			menuePanel = login.anmelden();
 		}
 		else if(Befehl.equals("Registrieren"))
 		{
-			ausgabe = registration.userAnlegen();
+			
 		}
 		else if(Befehl.equals("Einkaufen"))
 		{
-			ausgabe = einkauf.start();
+			menuePanel = einkauf.start();
 			//ausgabe = artikel.anzeigen();
 		}
 		else if(Befehl.equals("Profil"))
 		{
-			ausgabe = profil.profilAusgeben();
+			menuePanel = profil.profilAusgeben();
 		}
 		else if(Befehl.equals("Verwaltung"))
 		{
 			
 		}
-		mainPanel.add("Center", ausgabe);
-		mainPanel.validate();
+		viewWechseln(menuePanel);
 	}
 }
 	

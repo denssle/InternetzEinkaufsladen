@@ -12,14 +12,14 @@ import javax.swing.JTextField;
 
 public class LogInAnsicht implements ActionListener
 {	
+	private RegistrationAnsicht registration = new RegistrationAnsicht();
 	private JTextField emailField = new JTextField("Email hier", 12);
 	private JTextField passwortField = new JPasswordField("", 12);
-	private String[] loginData;
-	
+	private String[] loginData = new String[1];
+	JPanel login = new JPanel();
 	public JPanel anmelden()
 	{
 		
-		JPanel login = new JPanel();
 		login.setLayout(new FlowLayout());		
 		
 		emailField.setName("Email");
@@ -31,11 +31,16 @@ public class LogInAnsicht implements ActionListener
 		JButton ok = new JButton("Ok");
 		ok.addActionListener(this);
 		
+		JButton registrationsButton = new JButton("Registrieren");
+		registrationsButton.addActionListener(this);
+		
 		login.add(new JLabel("Email: "));
 		login.add(emailField);
 		login.add(new JLabel("Passwort: "));
 		login.add(passwortField);
 		login.add(ok);
+		login.add(new JLabel("Oder hier neu registrieren: "));
+		login.add(registrationsButton);
 		return login;
 	}
 
@@ -44,8 +49,13 @@ public class LogInAnsicht implements ActionListener
 		if (e.getActionCommand().equals("Ok"))
 		{
 			System.out.println(emailField.getText()+" "+passwortField.getText());
-			//loginData[0]=emailField.getText();
-			//loginData[1]=passwortField.getText();
+			loginData[0]=emailField.getText();
+			loginData[1]=passwortField.getText();
+		}
+		
+		if(e.getActionCommand().equals("Registrieren"))
+		{
+			login = registration.userAnlegen();
 		}
 	}
 }

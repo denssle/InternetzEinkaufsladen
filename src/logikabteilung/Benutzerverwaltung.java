@@ -42,7 +42,14 @@ public class Benutzerverwaltung {
 	{
 		//do doo do
 	}
-	
+	public void anmelden()
+	{
+		
+	}
+	public void abmelden()
+	{
+		
+	}
 	public void namenVerifikation(String name)
 	{
 		if(name.isEmpty())
