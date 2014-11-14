@@ -1,16 +1,19 @@
 package view;
 import java.awt.FlowLayout;
 import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.HashMap;
 import java.util.Map;
 
+import javax.swing.AbstractButton;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-public class ArtikelCRUD
+public class ArtikelCRUD implements ActionListener 
 {
 	public JPanel anzeigen()
 	{
@@ -39,11 +42,15 @@ public class ArtikelCRUD
 		JComboBox<String> moeglicheKategorien = new JComboBox<String>(artikelKategorien);
 		zeileK.add(moeglicheKategorien);
 		
-		JPanel button = new JPanel();
-		button.setLayout(new FlowLayout());
-		button.add(new JButton("Ok"));
+		JPanel buttonPanel = new JPanel();
+		JButton button = new JButton("Ok");
+		button.addActionListener(this);
+		buttonPanel.setLayout(new FlowLayout());
+		buttonPanel.add(button);
 		
-		JPanel[] panelArray = {zeileN, zeileP, zeileB, zeileK,button};
+		
+		
+		JPanel[] panelArray = {zeileN, zeileP, zeileB, zeileK,buttonPanel};
 		JPanel zwischenschritt = new JPanel();
 		zwischenschritt.setLayout(new GridLayout(panelArray.length+1,2));
 		for(int i=0; i<panelArray.length; i++)
@@ -54,22 +61,16 @@ public class ArtikelCRUD
 		main.add(zwischenschritt);
 		return main;
 	}
-	public Map<String, Comparable> erstellen()
+
+	@Override
+	public void actionPerformed(ActionEvent e)
 	{
-		Map<String, Comparable> neuerArtikelMap = new HashMap<String, Comparable>();
-		/*
-		System.out.println("Name des Artikels, bitte:");
-		neuerArtikelMap.put("name", eingabe.einlesenString());
+		String eingabe = e.getActionCommand();
+
+		if (eingabe.equals("Ok"))
+		{
+			System.out.println("X");
+		}
 		
-		System.out.println("Preis des Artikels, bitte:");
-		neuerArtikelMap.put("preis", eingabe.einlesenDouble());
-		
-		System.out.println("Beschreibung des Artikels, bitte:");
-		neuerArtikelMap.put("beschreibung", eingabe.einlesenString());
-		
-		System.out.println("Kategorie des Artikels, bitte:");
-		neuerArtikelMap.put("kategorie", eingabe.einlesenString());
-		*/
-		return neuerArtikelMap;
 	}
 }

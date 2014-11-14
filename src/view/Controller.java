@@ -19,13 +19,11 @@ import view.LogInAnsicht;
 
 public class Controller implements ActionListener 
 {
-	private Artikelverwaltung artikelLogik = new Artikelverwaltung();
 	private LogInAnsicht login = new LogInAnsicht();
 	private EinkaufAnsicht einkauf = new EinkaufAnsicht();
 	private WarenkorbAnsicht warenkorb = new WarenkorbAnsicht();
 	private BenutzerAnsicht profil = new BenutzerAnsicht();
-	private ArtikelCRUD artikel = new ArtikelCRUD();
-	
+	private VerwaltungsAnsicht verwaltung = new VerwaltungsAnsicht();
 	private static JPanel mainPanel = new JPanel(); 	
 	
 	public void start()
@@ -55,7 +53,7 @@ public class Controller implements ActionListener
 				"Anmelden", 
 				"Einkaufen", 
 				"Profil", 
-				"Leer", 
+				"Verwaltung", 
 				"Leer"};
 		JPanel leiste = new JPanel();
 		
@@ -89,11 +87,15 @@ public class Controller implements ActionListener
 		}
 		else if(Befehl.equals("Einkaufen"))
 		{
-			menuePanel = einkauf.start();
+			menuePanel = einkauf.startMenue();
 		}
 		else if(Befehl.equals("Profil"))
 		{
 			menuePanel = profil.profilAusgeben();
+		}
+		else if(Befehl.equals("Verwaltung"))
+		{
+			menuePanel = verwaltung.startMenue();
 		}
 		viewWechseln(menuePanel);
 	}
