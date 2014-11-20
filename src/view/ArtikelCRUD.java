@@ -22,7 +22,6 @@ public class ArtikelCRUD implements ActionListener
 	private JComboBox<String> moeglicheKategorien;
 	private String[] beschriftungen = {"Artikelname", "Preis", "Beschreibung"};
 	private JTextField[] textFelder = new JTextField[beschriftungen.length];
-	private Map<String, String> neuerArtikelMap = new HashMap<String, String>();
 	
 	public JPanel anzeigen()
 	{
@@ -35,6 +34,7 @@ public class ArtikelCRUD implements ActionListener
 		{
 			zeile.add(new JLabel(beschriftungen[i]));
 			JTextField zeilenText = new JTextField();
+			zeilenText.setName(beschriftungen[i]);
 			textFelder[i]=zeilenText;
 			zeilenText.addActionListener(this);
 			zeile.add(zeilenText);
@@ -56,23 +56,23 @@ public class ArtikelCRUD implements ActionListener
 	public void actionPerformed(ActionEvent e)
 	{
 		String eingabe = e.getActionCommand();
-
+		Map neuerArtikelMap = new HashMap();
+		
 		if (eingabe.equals("Ok"))
 		{
 			for(int i = 0; i<beschriftungen.length; i++)
 			{
-				JTextField feldInhalt= textFelder[i];
-				System.out.println(feldInhalt.getText());
-				neuerArtikelMap.put(feldInhalt.getName(), feldInhalt.getText());
+				System.out.println(textFelder[i].getName() + " - "+textFelder[i].getText());
+				neuerArtikelMap.put(textFelder[i].getName(), textFelder[i].getText());
 			}
 			String kategorieWahl = moeglicheKategorien.getItemAt((moeglicheKategorien.getSelectedIndex()));
 			System.out.println(kategorieWahl);
-			neuerArtikelMap.put("Kategorie",kategorieWahl );
-			speichern();
+			neuerArtikelMap.put("Kategorie",kategorieWahl);
+			speichern(neuerArtikelMap);
 		}
 	}
 
-	private void speichern()
+	private void speichern(Map neuerArtikelMap)
 	{
 		try
 		{
@@ -84,6 +84,9 @@ public class ArtikelCRUD implements ActionListener
 		{
 			JOptionPane.showMessageDialog(null,error.getMessage());
 		}
-		
+		catch(NullPointerException error)
+		{
+			JOptionPane.showMessageDialog(null,"Keine leeren Felder!");
+		}
 	}
 }

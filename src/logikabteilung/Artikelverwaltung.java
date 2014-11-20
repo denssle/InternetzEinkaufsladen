@@ -1,25 +1,27 @@
 package logikabteilung;
 import java.util.Map;
+
 import datenverwaltungsschicht.ArtikelDAO;
 
 
 public class Artikelverwaltung
 {
-	private ArtikelDAO artikelDAO = new ArtikelDAO();
+	private static ArtikelDAO artikelDAO = new ArtikelDAO();
 	private static int artikelanzahl;
 	
 	public void artikelSpeichern(Map neuerArtikelMap)
 	{
-		kategorieVerifikation((String) neuerArtikelMap.get("kategorie"));
-		namensVerifikation((String) neuerArtikelMap.get("name"));
-		preisVerifikation((double) neuerArtikelMap.get("preis"));
+		kategorieVerifikation((String) neuerArtikelMap.get("Kategorie"));
+		namensVerifikation((String) neuerArtikelMap.get("Artikelname")+" ");
+		double zahl = Double.parseDouble((String) neuerArtikelMap.get("Preis"));
+		preisVerifikation(zahl);
 		
 		Artikel zuSpeichernderArtikel = new Artikel();
 		zuSpeichernderArtikel.setArtikelId(artikelanzahl++);
-		zuSpeichernderArtikel.setBeschreibung((String) neuerArtikelMap.get("beschreibung"));
-		zuSpeichernderArtikel.setKategorie((String) neuerArtikelMap.get("kategorie"));
-		zuSpeichernderArtikel.setName((String) neuerArtikelMap.get("name"));
-		zuSpeichernderArtikel.setPreis((double) neuerArtikelMap.get("preis"));
+		zuSpeichernderArtikel.setBeschreibung((String) neuerArtikelMap.get("Beschreibung"));
+		zuSpeichernderArtikel.setKategorie((String) neuerArtikelMap.get("Kategorie"));
+		zuSpeichernderArtikel.setName((String) neuerArtikelMap.get("Artikelname"));
+		zuSpeichernderArtikel.setPreis(zahl);
 		artikelDAO.speichern(zuSpeichernderArtikel);
 	}
 	
