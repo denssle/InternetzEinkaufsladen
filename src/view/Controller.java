@@ -24,7 +24,6 @@ public class Controller implements ActionListener
 	private WarenkorbAnsicht warenkorb = new WarenkorbAnsicht();
 	private BenutzerAnsicht profil = new BenutzerAnsicht();
 	private VerwaltungsAnsicht verwaltung = new VerwaltungsAnsicht();
-	private LadebalkenView ladeVorgang = new LadebalkenView();
 	private static JPanel mainPanel = new JPanel(); 	
 	
 	public void start()

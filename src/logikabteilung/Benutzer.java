@@ -1,6 +1,8 @@
 package logikabteilung;
 
-public class Benutzer
+import java.io.Serializable;
+
+public class Benutzer implements Serializable
 {
 	private Warenkorb warenkorb;
 	private int id;
