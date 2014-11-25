@@ -7,7 +7,7 @@ import datenverwaltungsschicht.ArtikelDAO;
 public class Artikelverwaltung
 {
 	private static ArtikelDAO artikelDAO = new ArtikelDAO();
-	private static int artikelanzahl;
+	private static int artikelanzahl = artikelDAO.artikelAnzahl();
 	
 	public void artikelSpeichern(Map neuerArtikelMap)
 	{

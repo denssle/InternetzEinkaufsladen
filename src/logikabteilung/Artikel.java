@@ -1,6 +1,8 @@
 package logikabteilung;
 
-public class Artikel
+import java.io.Serializable;
+
+public class Artikel implements Serializable
 {
 	private int artikelId;
 	private String name;

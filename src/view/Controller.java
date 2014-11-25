@@ -52,9 +52,9 @@ public class Controller implements ActionListener
 		String[] buttonlabels = {
 				"Anmelden", 
 				"Einkaufen", 
+				"Einkaufswagen", 
 				"Profil", 
-				"Verwaltung", 
-				"Leer"};
+				"Verwaltung"};
 		JPanel leiste = new JPanel();
 		
 		leiste.setLayout(new GridLayout(5,1));
