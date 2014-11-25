@@ -8,7 +8,7 @@ public class Artikelverwaltung
 {
 	private static ArtikelDAO artikelDAO = new ArtikelDAO();
 	private static int artikelanzahl = artikelDAO.artikelAnzahl();
-	
+
 	public void artikelSpeichern(Map neuerArtikelMap)
 	{
 		kategorieVerifikation((String) neuerArtikelMap.get("Kategorie"));
@@ -49,5 +49,14 @@ public class Artikelverwaltung
 	public Map getAlleArtikel()
 	{
 		return artikelDAO.getAlleArtikel();
+	}
+	public static int getArtikelanzahl()
+	{
+		return artikelanzahl;
+	}
+
+	public static void setArtikelanzahl(int artikelanzahl)
+	{
+		Artikelverwaltung.artikelanzahl = artikelanzahl;
 	}
 }
