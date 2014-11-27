@@ -40,7 +40,6 @@ public class LadebalkenView
 		for(int i=0; i<ladeTexte.length; i++)
 		{
 			progressBar.setValue(j);
-			System.out.println(j);
 			j += schritte;
 			beschriftung.setText(ladeTexte[i]);
 		}	
