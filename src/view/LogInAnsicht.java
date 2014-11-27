@@ -33,7 +33,7 @@ public class LogInAnsicht implements ActionListener
 		JPanel login = new JPanel();
 		login.setLayout(new FlowLayout());	
 		
-		login.add(new JLabel("Sie sind angemeldet. "));
+		login.add(new JLabel("Sie sind angemeldet."));
 		return login;
 	}
 	private JPanel nichtAngemeldet()

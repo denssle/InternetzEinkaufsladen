@@ -89,6 +89,10 @@ public class Controller implements ActionListener
 		{
 			menuePanel = einkauf.startMenue();
 		}
+		else if(Befehl.equals("Einkaufswagen"))
+		{
+			menuePanel = LadebalkenView.ladevorgangInit("Test");
+		}
 		else if(Befehl.equals("Profil"))
 		{
 			menuePanel = profil.profilAusgeben();
@@ -98,6 +102,7 @@ public class Controller implements ActionListener
 			menuePanel = verwaltung.startMenue();
 		}
 		viewWechseln(menuePanel);
+		LadebalkenView.ladevorgangStart();
 	}
 }
 	
