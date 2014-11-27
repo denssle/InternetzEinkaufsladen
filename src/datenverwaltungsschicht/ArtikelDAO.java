@@ -32,6 +32,7 @@ public class ArtikelDAO
 		catch (IOException | ClassNotFoundException e)
 		{
 			e.printStackTrace();
+			System.out.println("Datei konnte nicht gelesen werden.");
 			ausgeleseneArtikel = new HashMap<Integer, Artikel>();
 		}
 		return ausgeleseneArtikel;
@@ -69,7 +70,7 @@ public class ArtikelDAO
 	
 	public void validiereSpeicher()
 	{
-		System.out.println("Speichervalidierung gestartet!");
+		System.out.println("Artikelspeichervalidierung gestartet!");
 
 		if(!artikelSpeicherOrt.exists())
         {

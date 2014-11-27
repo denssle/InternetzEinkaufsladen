@@ -1,12 +1,12 @@
 package logikabteilung;
 import java.util.Map;
-import datenverwaltungsschicht.NutzerDAO;
+import datenverwaltungsschicht.BenutzerDAO;
 import logikabteilung.Benutzer;
 
 public class Benutzerverwaltung
 {
-	private NutzerDAO nutzerDAO = new NutzerDAO();
-	private static int userzahl;
+	private BenutzerDAO benutzerDAO = new BenutzerDAO();
+	private int userzahl = benutzerDAO.getAnzahlBenutzer();
 	private static Benutzer aktuellerUser = null;
 	
 	public void neuerNutzer(Map<String, String> neuerUserMap)
@@ -15,7 +15,7 @@ public class Benutzerverwaltung
 		//Eingaben werden verifiziert...
 		namenVerifikation(neuerUserMap.get("Name"));
 		emailVerifikation(neuerUserMap.get("Email"));
-		passwortVerifikation(neuerUserMap.get("Password"));
+		passwortVerifikation(neuerUserMap.get("Passwort"));
 		
 		//Nach bestandener Verifikation wird der neue User angelegt
 		Benutzer neuerUser = new Benutzer();
@@ -31,7 +31,7 @@ public class Benutzerverwaltung
 		
 		aktuellerUser = neuerUser;
 		
-		nutzerDAO.speichern(neuerUser);
+		benutzerDAO.speichern(neuerUser);
 	}
 	
 	public void bearbeiteNutzer()
@@ -43,19 +43,19 @@ public class Benutzerverwaltung
 	{
 		//do doo do
 	}
-	public Benutzer getAktuellerBenuzer()
+	public static Benutzer getAktuellerBenuzer()
 	{
 		return aktuellerUser;
 	}
 	public String anmelden(String email, String passwort)
 	{
-		Benutzer anmeldeversuch = nutzerDAO.benutzerVorhanden(email, passwort);
+		Benutzer anmeldeversuch = benutzerDAO.anmeldeVersuch(email, passwort);
 		if(anmeldeversuch!= null)
 			{
 				aktuellerUser=anmeldeversuch;
 				return("Anmeldung erfolgreich.");
 			}
-		return("Es wurde kein passender User gefunden. ");
+		return("Es wurde kein passender User gefunden.");
 	}
 	public void abmelden()
 	{

@@ -22,7 +22,7 @@ public class LogInAnsicht implements ActionListener
 	
 	public JPanel anmelden()
 	{
-		if(nutzerLogik.getAktuellerBenuzer() == null)
+		if(Benutzerverwaltung.getAktuellerBenuzer() == null)
 		{
 			return nichtAngemeldet();
 		}
@@ -33,7 +33,7 @@ public class LogInAnsicht implements ActionListener
 		JPanel login = new JPanel();
 		login.setLayout(new FlowLayout());	
 		
-		login.add(new JLabel("Sie sind bereits angemeldet, sie Pfosten. "));
+		login.add(new JLabel("Sie sind angemeldet. "));
 		return login;
 	}
 	private JPanel nichtAngemeldet()
@@ -69,11 +69,13 @@ public class LogInAnsicht implements ActionListener
 			System.out.println(emailField.getText()+" "+passwortField.getText());
 			String anmeldeStatus = nutzerLogik.anmelden(emailField.getText(),passwortField.getText());
 			JOptionPane.showMessageDialog(null,anmeldeStatus);
+			Benutzerverwaltung.getAktuellerBenuzer();
+			Controller.viewWechseln(anmelden());
 		}
 		
 		if(e.getActionCommand().equals("Registrieren"))
 		{
-			Controller.viewWechseln(registration.userAnlegen());
+			Controller.viewWechseln(registration.userAnlegen(nutzerLogik));
 		}
 	}
 }

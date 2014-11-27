@@ -12,7 +12,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Map.Entry;
 
-public class NutzerDAO
+public class BenutzerDAO
 {
 	private String pfad = "/Users/admin/Dropbox/FH/benutzerSpeicherOrt.txt";
 	private File benutzerSpeicherOrt = new File(pfad);
@@ -33,6 +33,7 @@ public class NutzerDAO
 		catch (IOException | ClassNotFoundException e)
 		{
 			e.printStackTrace();
+			System.out.println("Datei konnte nicht gelesen werden.");
 			ausgeleseneBenutzer = new HashMap<Integer, Benutzer>();
 		}
 		return ausgeleseneBenutzer;
@@ -98,7 +99,7 @@ public class NutzerDAO
 	{
 		return alleNutzer;
 	}
-	public Benutzer benutzerMailVorhanden(String email)
+	private Benutzer benutzerMailVorhanden(String email)
 	{
 		for (Entry<Integer, Benutzer> entry : alleNutzer.entrySet())
 		{
@@ -111,16 +112,25 @@ public class NutzerDAO
 		return null;
 	}
 
-	public Benutzer benutzerVorhanden(String email, String passwort)
+	public Benutzer anmeldeVersuch(String email, String passwort)
 	{
 		Benutzer mailBenutzer = benutzerMailVorhanden(email);
 		if(mailBenutzer != null)
 		{
+			System.out.println(mailBenutzer.getName() + " wurde gefunden; PW: "+ mailBenutzer.getPasswort());
 			if(mailBenutzer.getPasswort().equals(passwort))
 			{
 				return mailBenutzer;
 			}
+			else
+			{
+				System.out.println("Passwort falsch!");
+			}
 		}
 		return null;
+	}
+	public int getAnzahlBenutzer()
+	{
+		return alleNutzer.size();
 	}
 }

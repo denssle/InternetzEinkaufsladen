@@ -17,13 +17,14 @@ import logikabteilung.Benutzerverwaltung;
 
 public class RegistrationAnsicht implements ActionListener
 {	
-	private Benutzerverwaltung nutzerLogik = new Benutzerverwaltung();
-	private String[] daten = {"Name", "Email", "Geburtstag", "Strasse", "Hausnummer", "Stadt", "Postleitzahl", "Password"};
+	private String[] daten = {"Name", "Email", "Geburtstag", "Strasse", "Hausnummer", "Stadt", "Postleitzahl", "Passwort"};
 	private JTextField[] textFelder = new JTextField[daten.length];
 	private Map<String, String> neuerNutzerMap = new HashMap<String, String>();
-
-	public JPanel userAnlegen()
+	private Benutzerverwaltung nutzerLogik = null;
+	
+	public JPanel userAnlegen(Benutzerverwaltung nutzerLogik)
 	{
+		this.nutzerLogik = nutzerLogik;
 		JPanel zeile = new JPanel();
 		JPanel userLeiste = new JPanel();
 		userLeiste.setLayout(new FlowLayout());
@@ -60,7 +61,7 @@ public class RegistrationAnsicht implements ActionListener
 			try
 			{
 				nutzerLogik.neuerNutzer(neuerNutzerMap);
-				JOptionPane.showMessageDialog(null,nutzerLogik.getAktuellerBenuzer().getName()+" hat sich angemeldet.");
+				JOptionPane.showMessageDialog(null,Benutzerverwaltung.getAktuellerBenuzer().getName()+" hat sich angemeldet.");
 				Controller.viewWechseln(new JPanel());
 			}
 			catch(IllegalArgumentException error)

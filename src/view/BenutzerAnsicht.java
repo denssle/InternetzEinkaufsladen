@@ -13,11 +13,9 @@ import logikabteilung.Benutzerverwaltung;
 
 public class BenutzerAnsicht
 {
-	private Benutzerverwaltung nutzerLogik = new Benutzerverwaltung();
-
 	public JPanel profilAusgeben()
 	{
-		Benutzer aktuell = nutzerLogik.getAktuellerBenuzer();
+		Benutzer aktuell = Benutzerverwaltung.getAktuellerBenuzer();
 		if(aktuell != null)
 		{
 			return profilAngemeldeterAusgeben(aktuell);
@@ -38,11 +36,11 @@ public class BenutzerAnsicht
 		JPanel main = new JPanel();
 		main.setLayout(new FlowLayout());
 	
-		String[] label = {"Name", "Email", "Geburtstag", "Strasse", "Hausnummer", "Stadt", "Postleitzahl"};
-		String[] daten = {aktuell.getName(), aktuell.getEmail(), aktuell.getGeburtstag(), aktuell.getStrasse(), aktuell.getHausnummer(), aktuell.getStadt(), aktuell.getPlz()};
+		String[] label = {"Name", "Email", "Geburtstag", "Strasse", "Hausnummer", "Stadt", "Postleitzahl", "PW"};
+		String[] daten = {aktuell.getName(), aktuell.getEmail(), aktuell.getGeburtstag(), aktuell.getStrasse(), aktuell.getHausnummer(), aktuell.getStadt(), aktuell.getPlz(), aktuell.getPasswort()};
 
 		JPanel zeile = new JPanel();
-		zeile.setLayout(new GridLayout(8,2));
+		zeile.setLayout(new GridLayout(9,2));
 		for(int i = 0; i < daten.length; i++)
 		{
 			zeile.add(new JLabel(label[i]));
