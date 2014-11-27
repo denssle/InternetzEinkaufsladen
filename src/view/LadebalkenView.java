@@ -10,11 +10,11 @@ import javax.swing.JProgressBar;
 public class LadebalkenView
 {
 	private static JProgressBar progressBar = new JProgressBar();
-	private static JLabel beschriftung = new JLabel();
+	private static JLabel beschriftung = new JLabel("Ladevorgang");
+	private static JPanel main = new JPanel();
 	
 	public static JPanel ladevorgangInit()
 	{
-		JPanel main = new JPanel();
 		main.setLayout(new GridLayout());
 		
 		JPanel statusLabel = new JPanel();
@@ -25,7 +25,8 @@ public class LadebalkenView
 		JPanel vorgang = new JPanel();
 		
 		progressBar.setValue(0);
-	    progressBar.setIndeterminate(true);
+	    //progressBar.setIndeterminate(true);
+	    progressBar.setVisible(true);
 	    vorgang.add(progressBar);
 	    
 		main.add(statusLabel);
@@ -42,6 +43,13 @@ public class LadebalkenView
 			progressBar.setValue(j);
 			j += schritte;
 			beschriftung.setText(ladeTexte[i]);
+			Controller.update();
+			try {
+				Thread.sleep(500);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		}	
 		
 		progressBar.setValue(100);

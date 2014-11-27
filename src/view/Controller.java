@@ -79,7 +79,7 @@ public class Controller implements ActionListener
 	
 	public void actionPerformed(ActionEvent e)
 	{
-		ladevorgang();
+		
 		JPanel menuePanel = new JPanel();
 		String Befehl = e.getActionCommand();
 		if (Befehl.equals("Anmelden"))
@@ -92,6 +92,7 @@ public class Controller implements ActionListener
 		}
 		else if(Befehl.equals("Einkaufswagen"))
 		{
+			menuePanel = LadebalkenView.ladevorgangInit();
 		}
 		else if(Befehl.equals("Profil"))
 		{
@@ -102,6 +103,8 @@ public class Controller implements ActionListener
 			menuePanel = verwaltung.startMenue();
 		}
 		viewWechseln(menuePanel);
+		String[] test = {"Test1", "Test2", "Test3", "Test4", "Test5", "Test6", "Test7"};
+		LadebalkenView.ladevorgangStart(test);
 	}
 	private void ladevorgang()
 	{
@@ -109,6 +112,10 @@ public class Controller implements ActionListener
 		String[] test = {"Test1", "Test2", "Test3", "Test4", "Test5", "Test6", "Test7"};
 		LadebalkenView.ladevorgangStart(test);
 		
+	}
+	public static void update()
+	{
+		mainPanel.validate();
 	}
 }
 	
