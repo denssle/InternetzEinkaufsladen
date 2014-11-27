@@ -91,7 +91,7 @@ public class Controller implements ActionListener
 		}
 		else if(Befehl.equals("Einkaufswagen"))
 		{
-			menuePanel = LadebalkenView.ladevorgangInit("Test");
+			menuePanel = LadebalkenView.ladevorgangInit();
 		}
 		else if(Befehl.equals("Profil"))
 		{
@@ -102,7 +102,8 @@ public class Controller implements ActionListener
 			menuePanel = verwaltung.startMenue();
 		}
 		viewWechseln(menuePanel);
-		LadebalkenView.ladevorgangStart();
+		String[] test = {"Test1", "Test2", "Test3", "Test4", "Test5", "Test6", "Test7"};
+		LadebalkenView.ladevorgangStart(test);
 	}
 }
 	
