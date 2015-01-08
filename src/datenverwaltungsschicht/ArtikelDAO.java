@@ -9,45 +9,45 @@ import java.io.ObjectOutputStream;
 import java.util.HashMap;
 import java.util.Map;
 
-import logikabteilung.ArtikelModel;
+import logikabteilung.Artikel;
 
 public class ArtikelDAO
 {
-	private String pfad = "/Users/admin/IEL/aktikelSpeicherOrt.txt";
+	private String pfad = "/Users/admin/Dropbox/FH/aktikelSpeicherOrt.txt";
 	private File artikelSpeicherOrt = new File(pfad);
-	private Map<Integer, ArtikelModel> alleArtikel = alteArtikelAuslesen();
+	private Map<Integer, Artikel> alleArtikel = alteArtikelAuslesen();
 	
-	private Map<Integer, ArtikelModel> alteArtikelAuslesen()
+	private Map<Integer, Artikel> alteArtikelAuslesen()
 	{
 		validiereSpeicher();
 		
-		Map<Integer, ArtikelModel> ausgeleseneArtikel;
+		Map<Integer, Artikel> ausgeleseneArtikel;
 		try
 		{
 			FileInputStream fs = new FileInputStream(pfad);
 			ObjectInputStream is = new ObjectInputStream(fs);
-			ausgeleseneArtikel = (Map<Integer, ArtikelModel>) is.readObject();
+			ausgeleseneArtikel = (Map<Integer, Artikel>) is.readObject();
 			is.close();
 		}
 		catch (IOException | ClassNotFoundException e)
 		{
 			e.printStackTrace();
 			System.out.println("Datei konnte nicht gelesen werden.");
-			ausgeleseneArtikel = new HashMap<Integer, ArtikelModel>();
+			ausgeleseneArtikel = new HashMap<Integer, Artikel>();
 		}
 		return ausgeleseneArtikel;
 	}
-	public void bearbeiten(ArtikelModel zuBearbeitenderArtikel)
+	public void bearbeiten(Artikel zuBearbeitenderArtikel)
 	{
 		//return true;
 	}
 
-	public void entfernen(ArtikelModel zuEntfernenderArtikel)
+	public void entfernen(Artikel zuEntfernenderArtikel)
 	{
 		//return true;
 	}
 	
-	public void speichern(ArtikelModel zuSpeichernderArtikel)
+	public void speichern(Artikel zuSpeichernderArtikel)
 	{
 		validiereSpeicher();
 		
