@@ -9,7 +9,7 @@ import java.util.Map;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import logikabteilung.Artikel;
+import logikabteilung.ArtikelModel;
 import logikabteilung.Artikelverwaltung;
 
 public class EinkaufAnsicht implements ActionListener 
@@ -18,7 +18,7 @@ public class EinkaufAnsicht implements ActionListener
 	
 	public JPanel startMenue()
 	{
-		Map<Integer, Artikel> artikelMap = artikelLogik.getAlleArtikel();
+		Map<Integer, ArtikelModel> artikelMap = artikelLogik.getAlleArtikel();
 		JPanel main = new JPanel();
 		main.setLayout(new FlowLayout());
 		
@@ -32,7 +32,7 @@ public class EinkaufAnsicht implements ActionListener
 		}
 		return main;
 	}
-	private JPanel artikelViewAusgeben(Map<Integer, Artikel> artikelMap)
+	private JPanel artikelViewAusgeben(Map<Integer, ArtikelModel> artikelMap)
 	{
 		JPanel zeile = new JPanel();
 		zeile.setLayout(new GridLayout(artikelMap.size()+1, 3));
@@ -45,7 +45,7 @@ public class EinkaufAnsicht implements ActionListener
 		{
 			Map.Entry pairs = (Map.Entry)iterator.next();
 	        String key = pairs.getKey().toString();
-	        Artikel value = (Artikel) pairs.getValue();
+	        ArtikelModel value = (ArtikelModel) pairs.getValue();
 	        zeile.add(new JLabel(key));
 	        zeile.add(new JLabel(value.getName()));
 	        JButton details = new JButton("Details");
@@ -59,7 +59,7 @@ public class EinkaufAnsicht implements ActionListener
 
 	public void actionPerformed(ActionEvent e)
 	{
-		Map<Integer, Artikel> artikelMap = artikelLogik.getAlleArtikel();
+		Map<Integer, ArtikelModel> artikelMap = artikelLogik.getAlleArtikel();
 		JButton presstButton = (JButton) e.getSource();
 		String pressedButton = presstButton.getName();
 		Iterator iterator = artikelMap.entrySet().iterator();
@@ -67,14 +67,14 @@ public class EinkaufAnsicht implements ActionListener
 		{
 			Map.Entry pairs = (Map.Entry)iterator.next();
 	        String key = pairs.getKey().toString();
-	        Artikel value = (Artikel) pairs.getValue();
+	        ArtikelModel value = (ArtikelModel) pairs.getValue();
 	        if(pressedButton.equals(key))
 	        {
 	        	detailansicht(value);
 	        }
 		}
 	}
-	private void detailansicht(Artikel value)
+	private void detailansicht(ArtikelModel value)
 	{
 		JPanel detailView = new JPanel();
 		detailView.setLayout(new GridLayout());

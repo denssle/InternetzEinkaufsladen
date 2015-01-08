@@ -16,7 +16,7 @@ public class Artikelverwaltung
 		double zahl = Double.parseDouble((String) neuerArtikelMap.get("Preis"));
 		preisVerifikation(zahl);
 		
-		Artikel zuSpeichernderArtikel = new Artikel();
+		ArtikelModel zuSpeichernderArtikel = new ArtikelModel();
 		zuSpeichernderArtikel.setArtikelId(artikelanzahl++);
 		zuSpeichernderArtikel.setBeschreibung((String) neuerArtikelMap.get("Beschreibung"));
 		zuSpeichernderArtikel.setKategorie((String) neuerArtikelMap.get("Kategorie"));

@@ -1,5 +1,5 @@
 package datenverwaltungsschicht;
-import logikabteilung.Artikel;
+import logikabteilung.ArtikelModel;
 import logikabteilung.Benutzer;
 
 import java.io.File;

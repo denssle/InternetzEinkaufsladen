@@ -2,7 +2,7 @@ package logikabteilung;
 
 import java.io.Serializable;
 
-public class Artikel implements Serializable
+public class ArtikelModel implements Serializable
 {
 	private int artikelId;
 	private String name;

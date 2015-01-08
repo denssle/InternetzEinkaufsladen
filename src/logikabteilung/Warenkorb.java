@@ -3,13 +3,13 @@ import java.util.*;
 
 public class Warenkorb
 {
-	private List<Artikel> inhalt = new LinkedList<Artikel>();
+	private List<ArtikelModel> inhalt = new LinkedList<ArtikelModel>();
 	
-	public List<Artikel> getInhalt()
+	public List<ArtikelModel> getInhalt()
 	{
 		return inhalt;
 	}
-	public void addInhalt(Artikel neuerArtikel)
+	public void addInhalt(ArtikelModel neuerArtikel)
 	{
 		inhalt.add(neuerArtikel);
 	}
