@@ -7,3 +7,6 @@ public/.DS_Store
 *.py~
 *.pyc
 *.class
+.classpath
+.project
+.settings/org.eclipse.jdt.core.prefs
